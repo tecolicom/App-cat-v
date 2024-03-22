@@ -1,26 +1,39 @@
+#!/usr/bin/env perl
 
-# NAME
+use v5.14;
+use warnings;
+use App::cat_v;
+
+App::cat_v->new->run(splice @ARGV);
+
+exit;
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
 
 cat-v - cat -v like tool
 
-# SYNOPSIS
+=head1 SYNOPSIS
 
-cat-v \[ options \] args ...
+cat-v [ options ] args ...
 
 Command Options:
 
     -h --help          Print this message
     -v --version       Print version
 
-# VERSION
+=head1 VERSION
 
 Version 1.01
 
-# DESCRIPTION
+=head1 DESCRIPTION
 
-# INSTALL
+=head1 INSTALL
 
-## CPANMINUS
+=head2 CPANMINUS
 
 From CPAN archive:
 
@@ -30,15 +43,17 @@ From GIT repository:
 
     cpanm https://github.com/kaz-utashiro/App-cat_v.git
 
-# SEE ALSO
+=head1 SEE ALSO
 
-# AUTHOR
+=head1 AUTHOR
 
 Kazumasa Utashiro
 
-# LICENSE
+=head1 LICENSE
 
 © 2024 Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
+
+=cut
