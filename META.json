@@ -48,7 +48,8 @@
             "Hash::Util" : "0",
             "List::Util" : "1.29",
             "Pod::Usage" : "0",
-            "Text::ANSI::Tabs" : "1.04",
+            "Text::ANSI::Fold" : "2.22",
+            "Text::ANSI::Tabs" : "1.05",
             "perl" : "5.014"
          }
       },

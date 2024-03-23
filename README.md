@@ -7,17 +7,23 @@ cat-v - visualize non-printing characters
 
 cat-v \[ options \] args ...
 
-Command Options:
+    OPTIONS
+      -c   --visible=#   Specify visualize characters
+           --repeat=#    Specify repeated characters
+      -t   --expand      Expand tabs
+      -T   --no-expand   Do not expand tabs
+     --ts  --tabstyle=#  Set tab style
+           --tabstop=#   Set tab width
+           --tabhead=#   Set tab-head character
+           --tabspace=#  Set tab-space character
+           --help        Print this message
+           --version     Print version
 
-    -v, --visible=#    Specify visualize characters
-    --repeat=#         Specify repeated characters
-    -t, --[no-]expand  Expand tabs or not
-    --tabstyle=#       Set tab style
-    --tabstop=#        Set tab width
-    --tabhead=#        Set tab-head character
-    --tabspace=#       Set tab-space character
-    --help             Print this message
-    --version          Print version
+    EXAMPLES
+      cat-v -c nl=1         Visualize newline
+      cat-v -c all=1,esc=0  Visualize everything but ESC
+      cat-v --ts=shade      Use "shade" style for to visualize tabs
+      cat-v -T              Do not expand tabs
 
 # VERSION
 
@@ -99,7 +105,7 @@ and escape characters are displayed as corresponding Unicode symbols.
 
 # OPTIONS
 
-- **-v**, **--visible** _name_=_flag_,...
+- **-c**, **--visible** _name_=_flag_,...
 
     Give the character type and flags as parameters to specify the
     character to be visualized and the conversion format.
@@ -110,25 +116,25 @@ and escape characters are displayed as corresponding Unicode symbols.
         1  convert
         *  anything else is used as a replacement
 
-    Option `-v nl=1` can also be used to visualize newline characters.
+    Option `-c nl=1` can also be used to visualize newline characters.
     For newline characters only, after displaying the result of the
     conversion, the original character is output at the same time.
 
     Use the names in the list above to specify by character type.  If you
     want to convert escapes without converting tabs, use the following
 
-        -v tab=0 -v esc=1
+        cat-v -c tab=0 -c esc=1
 
     Multiple items can be specified at the same time.  The following
     example sets `tab` and `bel` to 0 and `esc` to 1.
 
-        -v tab=bel=0,esc=1
+        cat-v -c tab=bel=0,esc=1
 
     If `all` is specified for the name, the value applies to all
     character types.  You can enable all and then exclude only escapes as
     follows
 
-        -v all=1,esc=0
+        cat-v -c all=1,esc=0
 
 - **--repeat**=_name_\[,_name_...\]
 
@@ -137,18 +143,19 @@ and escape characters are displayed as corresponding Unicode symbols.
     `nl`.  The following will correctly output the original ANSI sequence
     with the escape character visualized.
 
-        -v esc --repeat esc,nl
+        cat-v -c esc --repeat esc,nl
 
 - **--tabstop**=# (DEFAULT: 8)
 
     Set tab width.
 
-- **-t**, **--expand**, **--no-expand**
+- **-t**, **--expand**
+- **-T**, **--no-expand**
 
-    Tab characters are expanded by default. To explicitly disable it, use
-    the **--no-expand** option.
+    Tab characters are expanded by default.  To explicitly disable it, use
+    the **-T** or **--no-expand** option.
 
-    By default, the style `bar` is applied, which can be changed with
+    By default, the style `pin` is applied, which can be changed with
     `--tabstyle`. If the `--tabstyle` option is specified with no
     arguments, a list of available styles is displayed.
 
@@ -193,7 +200,14 @@ From GIT repository:
 
 # SEE ALSO
 
-[https://github.com/tecolicom/App-cat-v.git](https://github.com/tecolicom/App-cat-v.git)
+- [https://github.com/tecolicom/App-cat-v.git](https://github.com/tecolicom/App-cat-v.git)
+
+    Git repository.
+
+- [App::optex::util::filter](https://metacpan.org/pod/App%3A%3Aoptex%3A%3Autil%3A%3Afilter)
+
+    The predecessor of the `cat-v` command was originally created as the 
+    filter module of the [App::optex](https://metacpan.org/pod/App%3A%3Aoptex) command.
 
 # AUTHOR
 

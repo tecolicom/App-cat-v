@@ -75,16 +75,21 @@ sub list_tabstyle {
 
 use Getopt::EX::Hashed; {
     Getopt::EX::Hashed->configure(DEFAULT => [ is => 'rw' ]);
-    has visible    => ' v  =s@ ' ;
+    has visible    => ' c  =s@ ' ;
     has expand     => ' t  !   ' , default => 1 ;
     has repeat     => '    =s  ' , default => 'nl' ;
     has debug      => ' d      ' ;
-    has tabstop    => ' x  =i  ' , default => 8,  min => 1 ;
+    has tabstop    => ' x  =i  ' , default => 8, min => 1 ;
     has tabhead    => '    =s  ' ;
     has tabspace   => '    =s  ' ;
     has tabstyle   => ' ts :s  ' , default => 'bar' ;
-    has help       => '        ' ;
-    has version    => '        ' ;
+    has help       => ' h      ' ;
+    has version    => ' v      ' ;
+
+    #  -T negate -t
+    has T => '!', action => sub {
+	$_->expand = ! $_[1];
+    };
 
     has '+tabstyle' => sub {
 	if ($_[1] eq '') {
@@ -127,7 +132,7 @@ sub options {
     }
     use Getopt::EX::Long qw(:DEFAULT ExConfigure Configure);
     ExConfigure BASECLASS => [ __PACKAGE__, 'Getopt::EX' ];
-    Configure "bundling";
+    Configure qw(bundling);
     $app->getopt || pod2usage();
 
     require Getopt::EX::LabeledParam;
@@ -152,7 +157,7 @@ sub doit {
 	}
 	elsif ($flag{$name}) {
 	    push @symbol, $code{$name};
-	    if ($flag{$name} =~ /^([^\w\s])$/) {
+	    if ($flag{$name} =~ /^([^a-z\d\s])$/i) {
 		$symbol{$code{$name}} = $1;
 	    }
 	}
@@ -193,16 +198,16 @@ App::cat::v - cat-v command implementation
 Document is included in the executable script.
 Use `perldoc cat-v`.
 
+=head1 AUTHOR
+
+Kazumasa Utashiro
+
 =head1 LICENSE
 
 Copyright ©︎ 2024- Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
-
-=head1 AUTHOR
-
-Kazumasa Utashiro
 
 =cut
 

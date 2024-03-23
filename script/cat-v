@@ -1,9 +1,9 @@
 #!/usr/bin/env perl
 
-use v5.14;
+use strict;
 use warnings;
-use App::cat::v;
 
+use  App::cat::v;
 exit App::cat::v->new->run(splice @ARGV);
 
 __END__
@@ -18,17 +18,23 @@ cat-v - visualize non-printing characters
 
 cat-v [ options ] args ...
 
-Command Options:
+  OPTIONS
+    -c   --visible=#   Specify visualize characters
+         --repeat=#    Specify repeated characters
+    -t   --expand      Expand tabs
+    -T   --no-expand   Do not expand tabs
+   --ts  --tabstyle=#  Set tab style
+         --tabstop=#   Set tab width
+         --tabhead=#   Set tab-head character
+         --tabspace=#  Set tab-space character
+         --help        Print this message
+         --version     Print version
 
-    -v, --visible=#    Specify visualize characters
-    --repeat=#         Specify repeated characters
-    -t, --[no-]expand  Expand tabs or not
-    --tabstyle=#       Set tab style
-    --tabstop=#        Set tab width
-    --tabhead=#        Set tab-head character
-    --tabspace=#       Set tab-space character
-    --help             Print this message
-    --version          Print version
+  EXAMPLES
+    cat-v -c nl=1         Visualize newline
+    cat-v -c all=1,esc=0  Visualize everything but ESC
+    cat-v --ts=shade      Use "shade" style for to visualize tabs
+    cat-v -T              Do not expand tabs
 
 =head1 VERSION
 
@@ -118,7 +124,7 @@ and escape characters are displayed as corresponding Unicode symbols.
 
 =over 7
 
-=item B<-v>, B<--visible> I<name>=I<flag>,...
+=item B<-c>, B<--visible> I<name>=I<flag>,...
 
 Give the character type and flags as parameters to specify the
 character to be visualized and the conversion format.
@@ -129,25 +135,25 @@ character to be visualized and the conversion format.
     1  convert
     *  anything else is used as a replacement
 
-Option C<-v nl=1> can also be used to visualize newline characters.
+Option C<-c nl=1> can also be used to visualize newline characters.
 For newline characters only, after displaying the result of the
 conversion, the original character is output at the same time.
 
 Use the names in the list above to specify by character type.  If you
 want to convert escapes without converting tabs, use the following
 
-    -v tab=0 -v esc=1
+    cat-v -c tab=0 -c esc=1
 
 Multiple items can be specified at the same time.  The following
 example sets C<tab> and C<bel> to 0 and C<esc> to 1.
 
-    -v tab=bel=0,esc=1
+    cat-v -c tab=bel=0,esc=1
 
 If C<all> is specified for the name, the value applies to all
 character types.  You can enable all and then exclude only escapes as
 follows
 
-    -v all=1,esc=0
+    cat-v -c all=1,esc=0
 
 =item B<--repeat>=I<name>[,I<name>...]
 
@@ -156,18 +162,20 @@ the same time as the converted character.  The default setting is
 C<nl>.  The following will correctly output the original ANSI sequence
 with the escape character visualized.
 
-    -v esc --repeat esc,nl
+    cat-v -c esc --repeat esc,nl
 
 =item B<--tabstop>=# (DEFAULT: 8)
 
 Set tab width.
 
-=item B<-t>, B<--expand>, B<--no-expand>
+=item B<-t>, B<--expand>
 
-Tab characters are expanded by default. To explicitly disable it, use
-the B<--no-expand> option.
+=item B<-T>, B<--no-expand>
 
-By default, the style C<bar> is applied, which can be changed with
+Tab characters are expanded by default.  To explicitly disable it, use
+the B<-T> or B<--no-expand> option.
+
+By default, the style C<pin> is applied, which can be changed with
 C<--tabstyle>. If the C<--tabstyle> option is specified with no
 arguments, a list of available styles is displayed.
 
@@ -217,7 +225,18 @@ From GIT repository:
 
 =head1 SEE ALSO
 
-L<https://github.com/tecolicom/App-cat-v.git>
+=over 4
+
+=item L<https://github.com/tecolicom/App-cat-v.git>
+
+Git repository.
+
+=item L<App::optex::util::filter>
+
+The predecessor of the C<cat-v> command was originally created as the 
+filter module of the L<App::optex> command.
+
+=back
 
 =head1 AUTHOR
 
