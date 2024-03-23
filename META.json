@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : 2
    },
-   "name" : "App-cat_v",
+   "name" : "App-cat-v",
    "no_index" : {
       "directory" : [
          "t",
@@ -42,6 +42,13 @@
       },
       "runtime" : {
          "requires" : {
+            "Getopt::EX" : "0",
+            "Getopt::EX::Hashed" : "0",
+            "Getopt::Long" : "0",
+            "Hash::Util" : "0",
+            "List::Util" : "1.29",
+            "Pod::Usage" : "0",
+            "Text::ANSI::Tabs" : "1.04",
             "perl" : "5.014"
          }
       },
