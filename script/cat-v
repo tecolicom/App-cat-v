@@ -42,6 +42,22 @@ application output because it also converts Unicode characters.  It
 also converts escape characters, so output colored with ANSI sequences
 will also be corrupted.
 
+=begin html
+
+<p><img width="750" src="https://raw.githubusercontent.com/tecolicom/App-cat-v/main/images/corrupted.png">
+
+=end html
+
+The C<cat-v> command was created to solve such problems. Only control
+characters are targeted for conversion.  Also, by default, newline and
+escape characters are not converted.
+
+=begin html
+
+<p><img width="750" src="https://raw.githubusercontent.com/tecolicom/App-cat-v/main/images/visualized.png">
+
+=end html
+
 Sometimes it is desirable to visualize whitespace characters.  The
 C<cat -t> command can visualize tab characters, but the problem is
 that it breaks the visual format.  Sometimes we want to see which
@@ -49,10 +65,14 @@ parts are tabs and which parts are whitespace characters while
 preserving the format.  Extra whitespace characters at the end of a
 line can also be noticed by visualizing them.
 
-The C<cat-v> command was created to solve such problems. Only control
-characters are targeted for conversion.  Also, by default, newline and
-escape characters are not converted.  Tab characters are visualized in
-such a way that the space on the display does not change.
+Using C<cat-v>, tab characters are visualized in such a way that the
+space on the display does not change.
+
+=begin html
+
+<p><img width="750" src="https://raw.githubusercontent.com/tecolicom/App-cat-v/main/images/tabstyle-pin.png">
+
+=end html
 
 Control characters can be displayed in control format and Unicode
 symbol characters.  By default, control characters other than newline
@@ -100,7 +120,7 @@ and escape characters are displayed as corresponding Unicode symbols.
 
 =item B<-v>, B<--visible> I<name>=I<flag>,...
 
-Specify the character type and flags as parameters to specify the
+Give the character type and flags as parameters to specify the
 character to be visualized and the conversion format.
 
     c  control style
@@ -196,6 +216,8 @@ From GIT repository:
     cpanm https://github.com/tecolicom/App-cat-v.git
 
 =head1 SEE ALSO
+
+L<https://github.com/tecolicom/App-cat-v.git>
 
 =head1 AUTHOR
 

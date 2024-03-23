@@ -1,4 +1,4 @@
-
+[![Actions Status](https://github.com/tecolicom/App-cat-v/workflows/test/badge.svg)](https://github.com/tecolicom/App-cat-v/actions) [![MetaCPAN Release](https://badge.fury.io/pl/App-cat-v.svg)](https://metacpan.org/release/App-cat-v)
 # NAME
 
 cat-v - visualize non-printing characters
@@ -31,6 +31,18 @@ application output because it also converts Unicode characters.  It
 also converts escape characters, so output colored with ANSI sequences
 will also be corrupted.
 
+<div>
+    <p><img width="750" src="https://raw.githubusercontent.com/tecolicom/App-cat-v/main/images/corrupted.png">
+</div>
+
+The `cat-v` command was created to solve such problems. Only control
+characters are targeted for conversion.  Also, by default, newline and
+escape characters are not converted.
+
+<div>
+    <p><img width="750" src="https://raw.githubusercontent.com/tecolicom/App-cat-v/main/images/visualized.png">
+</div>
+
 Sometimes it is desirable to visualize whitespace characters.  The
 `cat -t` command can visualize tab characters, but the problem is
 that it breaks the visual format.  Sometimes we want to see which
@@ -38,10 +50,12 @@ parts are tabs and which parts are whitespace characters while
 preserving the format.  Extra whitespace characters at the end of a
 line can also be noticed by visualizing them.
 
-The `cat-v` command was created to solve such problems. Only control
-characters are targeted for conversion.  Also, by default, newline and
-escape characters are not converted.  Tab characters are visualized in
-such a way that the space on the display does not change.
+Using `cat-v`, tab characters are visualized in such a way that the
+space on the display does not change.
+
+<div>
+    <p><img width="750" src="https://raw.githubusercontent.com/tecolicom/App-cat-v/main/images/tabstyle-pin.png">
+</div>
 
 Control characters can be displayed in control format and Unicode
 symbol characters.  By default, control characters other than newline
@@ -87,7 +101,7 @@ and escape characters are displayed as corresponding Unicode symbols.
 
 - **-v**, **--visible** _name_=_flag_,...
 
-    Specify the character type and flags as parameters to specify the
+    Give the character type and flags as parameters to specify the
     character to be visualized and the conversion format.
 
         c  control style
@@ -178,6 +192,8 @@ From GIT repository:
     cpanm https://github.com/tecolicom/App-cat-v.git
 
 # SEE ALSO
+
+[https://github.com/tecolicom/App-cat-v.git](https://github.com/tecolicom/App-cat-v.git)
 
 # AUTHOR
 

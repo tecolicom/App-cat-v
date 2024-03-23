@@ -59,6 +59,17 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/tecolicom/App-cat-v/issues"
+      },
+      "homepage" : "https://github.com/tecolicom/App-cat-v",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/tecolicom/App-cat-v.git",
+         "web" : "https://github.com/tecolicom/App-cat-v"
+      }
+   },
    "version" : "0.01",
    "x_authority" : "cpan:UTASHIRO",
    "x_contributors" : [
