@@ -15,10 +15,12 @@ use Data::Dumper;
     $Data::Dumper::Useperl = 1;
 }
 use open IO => 'utf8', ':std';
+use charnames ':loose';
 use Pod::Usage;
 use List::Util qw(max pairmap);
 use Hash::Util qw(lock_keys);
 use Getopt::EX;
+use Text::ANSI::Tabs qw(ansi_expand);
 
 my %control  = (
     nul  => [ 's', "\000", "\x{2400}" ], # ␀ SYMBOL FOR NULL
@@ -63,6 +65,11 @@ my %symbol = pairmap { $b->[1] => $b->[2] } %control;
 my %code   = pairmap { $a => $b->[1] }      %control;
 lock_keys %flag;
 
+my $default_tabstyle = 'pin';
+if ($default_tabstyle) {
+    Text::ANSI::Tabs->configure(tabstyle => $default_tabstyle);
+}
+
 sub list_tabstyle {
     my %style = %Text::ANSI::Fold::TABSTYLE;
     my $max = max map length, keys %style;
@@ -76,27 +83,51 @@ sub list_tabstyle {
 use Getopt::EX::Hashed; {
     Getopt::EX::Hashed->configure(DEFAULT => [ is => 'rw' ]);
     has visible    => ' c  =s@ ' ;
+    has reset      => ' n      ' ;
     has expand     => ' t  !   ' , default => 1 ;
     has repeat     => '    =s  ' , default => 'nl' ;
     has debug      => ' d      ' ;
     has tabstop    => ' x  =i  ' , default => 8, min => 1 ;
     has tabhead    => '    =s  ' ;
     has tabspace   => '    =s  ' ;
-    has tabstyle   => ' ts :s  ' , default => 'bar' ;
+    has tabstyle   => ' ts :s  ' , default => $default_tabstyle ;
     has help       => ' h      ' ;
     has version    => ' v      ' ;
+
+    # -n
+    has '+reset' => sub {
+	$flag{$_} = '0' for keys %flag;
+    };
+
+    has [ keys %control ] => ':s', action => sub {
+	my($name, $c) = map "$_", @_;
+	$c = '1' if $c eq '';
+	$c = charnames::string_vianame($c) || die "$c: invalid name\n"
+	    if length($c) > 1;
+	$flag{$name} = $c;
+    };
 
     #  -T negate -t
     has T => '!', action => sub {
 	$_->expand = ! $_[1];
     };
 
-    has '+tabstyle' => sub {
-	if ($_[1] eq '') {
+    ### --tabstop, --tabstyle
+    has [ qw(+tabstop +tabstyle) ] => sub {
+	my($name, $val) = map "$_", @_;
+	if ($val eq '') {
 	    list_tabstyle();
 	    exit;
 	}
-	$_->tabstyle = $_[1] || undef;
+	Text::ANSI::Tabs->configure($name => $val);
+    };
+
+    ### --tabhead, --tabspace
+    has [ qw(+tabhead +tabspace) ] => sub {
+	my($name, $c) = map "$_", @_;
+	$c = charnames::string_vianame($c) || die "$c: invalid name\n"
+	    if length($c) > 1;
+	Text::ANSI::Tabs->configure($name => $c);
     };
 
     has '+visible' => sub {
@@ -143,19 +174,14 @@ sub options {
     return $app;
 }
 
-use Text::ANSI::Tabs qw(ansi_expand);
-
 sub doit {
     my $app = shift;
     my(@control, @symbol);
-    Text::ANSI::Tabs->configure(map  { $_   => $app->$_ }
-				grep { defined $app->$_ }
-				qw(tabstyle tabstop tabhead tabspace));
     for my $name (keys %flag) {
 	if ($flag{$name} eq 'c') {
 	    push @control, $code{$name};
 	}
-	elsif ($flag{$name}) {
+	elsif (my $c = $flag{$name}) {
 	    push @symbol, $code{$name};
 	    if ($flag{$name} =~ /^([^a-z\d\s])$/i) {
 		$symbol{$code{$name}} = $1;

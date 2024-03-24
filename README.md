@@ -8,22 +8,29 @@ cat-v - visualize non-printing characters
 cat-v \[ options \] args ...
 
     OPTIONS
-      -c   --visible=#   Specify visualize characters
-           --repeat=#    Specify repeated characters
-      -t   --expand      Expand tabs
-      -T   --no-expand   Do not expand tabs
-     --ts  --tabstyle=#  Set tab style
-           --tabstop=#   Set tab width
-           --tabhead=#   Set tab-head character
-           --tabspace=#  Set tab-space character
-           --help        Print this message
-           --version     Print version
+       -n   --reset         Disable all character conversion
+       -c   --visible=#     Specify visualize characters
+            --repeat=#      Specify repeated characters
+       -t   --expand        Expand tabs
+       -T   --no-expand     Do not expand tabs
+      --ts  --tabstyle=#    Set tab style
+            --tabstop=#     Set tab width
+            --tabhead=#     Set tab-head character
+            --tabspace=#    Set tab-space character
+       -h   --help          Print this message
+       -v   --version       Print version
+
+    OPTIONS FOR EACH CHARACTERS
+      --nl                  Enable newline
+      --nl=0                Disable newline
+      --nl='RETURN SYMBOL'  Unicode name
 
     EXAMPLES
-      cat-v -c nl=1         Visualize newline
+      cat-v --nl            Visualize newline
       cat-v -c all=1,esc=0  Visualize everything but ESC
       cat-v --ts=shade      Use "shade" style for to visualize tabs
-      cat-v -T              Do not expand tabs
+      cat-v -T              Do not expand tabs and convert to symbol
+      cat-v --sp=·          Convert space to MIDDLE DOT
 
 # VERSION
 
@@ -105,6 +112,10 @@ and escape characters are displayed as corresponding Unicode symbols.
 
 # OPTIONS
 
+- **-n**, **--reset**
+
+    Disables all character conversions.
+
 - **-c**, **--visible** _name_=_flag_,...
 
     Give the character type and flags as parameters to specify the
@@ -114,7 +125,7 @@ and escape characters are displayed as corresponding Unicode symbols.
         s  symbol style
         0  do not convert
         1  convert
-        *  anything else is used as a replacement
+        *  non-alphanumeric char is used as a replacement
 
     Option `-c nl=1` can also be used to visualize newline characters.
     For newline characters only, after displaying the result of the
@@ -135,6 +146,30 @@ and escape characters are displayed as corresponding Unicode symbols.
     follows
 
         cat-v -c all=1,esc=0
+
+- **--**_name_\[=_flag_\]
+
+    All control characters can also be accessed by an option with their
+    name.  For example, option `--nl` is defined for the newline
+    character.
+
+    Used alone, it activates the visibility of the character.
+
+        cat-v --nl
+
+    To disable, give the value 0.
+
+        cat-v --nl=0
+
+    If a letter other than an alphabet or a number is given, it will be
+    replaced by that letter.
+
+        cat-v --nl='$'
+
+    If a string of two or more characters is given, it is interpreted as a
+    Unicode character name.
+
+        cat-v --nl='RETURN SYMBOL' --sp='MIDDLE DOT'
 
 - **--repeat**=_name_\[,_name_...\]
 
