@@ -124,7 +124,6 @@ and escape characters are displayed as corresponding Unicode symbols.
         c  control style
         s  symbol style
         0  do not convert
-        1  convert
         *  non-alphanumeric char is used as a replacement
 
     Option `-c nl=1` can also be used to visualize newline characters.
@@ -134,18 +133,18 @@ and escape characters are displayed as corresponding Unicode symbols.
     Use the names in the list above to specify by character type.  If you
     want to convert escapes without converting tabs, use the following
 
-        cat-v -c tab=0 -c esc=1
+        cat-v -c tab=0 -c esc=s
 
     Multiple items can be specified at the same time.  The following
     example sets `tab` and `bel` to 0 and `esc` to 1.
 
-        cat-v -c tab=bel=0,esc=1
+        cat-v -c tab=bel=0,esc=s
 
     If `all` is specified for the name, the value applies to all
     character types.  You can enable all and then exclude only escapes as
     follows
 
-        cat-v -c all=1,esc=0
+        cat-v -c all=s,esc=0
 
 - **--**_name_\[=_flag_\]
 
