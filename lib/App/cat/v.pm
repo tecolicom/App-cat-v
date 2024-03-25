@@ -176,28 +176,27 @@ sub options {
 
 sub doit {
     my $app = shift;
-    my(@control, @symbol);
+    my($control, $symbol) = ('', '');
     for my $name (keys %flag) {
 	if ($flag{$name} eq 'c') {
-	    push @control, $code{$name};
+	    $control .= $code{$name};
 	}
 	elsif (my $c = $flag{$name}) {
-	    push @symbol, $code{$name};
+	    $symbol .= $code{$name};
 	    if ($flag{$name} =~ /^([^a-z\d\s])$/i) {
 		$symbol{$code{$name}} = $1;
 	    }
 	}
     }
-    local $" = '';
-    my @repeat = map { $code{$_} } $app->repeat =~ /\w+/g;
-    my $repeat_re = qr/[@repeat]/;
+    my $repeat = join '', map { $code{$_} } $app->repeat =~ /\w+/g;
+    my $repeat_re = qr/[$repeat]/;
     while (<>) {
 	$_ = ansi_expand($_) if $app->expand;
-	s{(?=(${repeat_re}?))([@symbol]|(?#bug?)(?!))}{$symbol{$2}$1}g
-	    if @symbol;
-	s{(?=(${repeat_re}?))([@control]|(?#bug?)(?!))}{
+	s{(?=(${repeat_re}?))([$symbol]|(?#bug?)(?!))}{$symbol{$2}$1}g
+	    if $symbol ne '';
+	s{(?=(${repeat_re}?))([$control]|(?#bug?)(?!))}{
 	    '^' . pack('c',ord($2)+64) . $1
-	}ge if @control;
+	}ge if $control ne '';
 	print;
     }
 }
