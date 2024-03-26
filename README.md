@@ -10,7 +10,7 @@ cat-v \[ options \] args ...
     OPTIONS
        -n   --reset         Disable all character conversion
        -c   --visible=#     Specify visualize characters
-            --repeat=#      Specify repeated characters
+            --repeat=#      Specify repeat characters
        -t   --expand        Expand tabs
        -T   --no-expand     Do not expand tabs
       --ts  --tabstyle=#    Set tab style
@@ -26,11 +26,11 @@ cat-v \[ options \] args ...
       --nl='RETURN SYMBOL'  Unicode name
 
     EXAMPLES
-      cat-v --nl            Visualize newline
-      cat-v -c all=1,esc=0  Visualize everything but ESC
+      cat-v --esc           Visualize escape
+      cat-v -c all=s,esc=0  Show by simbol everything but ESC
       cat-v --ts=shade      Use "shade" style for to visualize tabs
-      cat-v -T              Do not expand tabs and convert to symbol
-      cat-v --sp=·          Convert space to MIDDLE DOT
+      cat-v -T              Do not expand tabs
+      cat-v --sp=~          Convert spaces to tilde
 
 # VERSION
 
@@ -38,19 +38,20 @@ Version 0.01
 
 # DESCRIPTION
 
-The `cat -v` command is commonly used to display non-displayable
-characters, but it is not suitable for viewing multilingual
-application output because it also converts Unicode characters.  It
-also converts escape characters, so output colored with ANSI sequences
-will also be corrupted.
+The `cat -v` command is often used to display characters that cannot
+be displayed, but is not always suitable for viewing the output of
+modern applications because it converts all non-ASCII graphic
+characters.
+
+The `cat-v` command visualizes whitespace and control characters
+while preserving the display of displayable graphic characters.
 
 <div>
-    <p><img width="750" src="https://raw.githubusercontent.com/tecolicom/App-cat-v/main/images/corrupted.png">
+    <p><img width="750" src="https://raw.githubusercontent.com/tecolicom/App-cat-v/main/images/tree.png">
 </div>
 
-The `cat-v` command was created to solve such problems. Only control
-characters are targeted for conversion.  Also, by default, newline and
-escape characters are not converted.
+Also, by default, escape characters are not converted, so decorations
+by ANSI escape sequences are retained.
 
 <div>
     <p><img width="750" src="https://raw.githubusercontent.com/tecolicom/App-cat-v/main/images/visualized.png">
@@ -170,18 +171,28 @@ and escape characters are displayed as corresponding Unicode symbols.
 
         cat-v --nl='RETURN SYMBOL' --sp='MIDDLE DOT'
 
+    If flag begins with `+`, that character is added to the repeat list.
+    So
+
+        cat -v --esc=+s
+
+    will have the same meaning as if you had written:
+
+        cat -v --esc=s --repeat +esc
+
 - **--repeat**=_name_\[,_name_...\]
 
     Specifies the character type for outputting the original character at
     the same time as the converted character.  The default setting is
-    `nl`.  The following will correctly output the original ANSI sequence
-    with the escape character visualized.
+    `nl,np`.  The following will correctly output the original ANSI
+    sequence with the escape character visualized.
 
         cat-v -c esc --repeat esc,nl
 
-- **--tabstop**=# (DEFAULT: 8)
+    If _name_ begins with `+`, add that character in addition to the
+    existing configuration.
 
-    Set tab width.
+        cat-v -c esc --repeat +esc
 
 - **-t**, **--expand**
 - **-T**, **--no-expand**
@@ -200,6 +211,10 @@ and escape characters are displayed as corresponding Unicode symbols.
 
     In such cases, tab expansion can be temporarily enabled by the `-t`
     option.
+
+- **--tabstop**=# (DEFAULT: 8)
+
+    Set tab width.
 
 - **--tabhead**=#
 - **--tabspace**=#
