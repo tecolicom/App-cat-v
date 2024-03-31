@@ -4,7 +4,7 @@ LANGS    := JA KO ZH
 RM_LANGS ?= $(LANGS)
 IGNORE   := VERSION AUTHOR LICENSE
 ENGINES  := deepl
-XLANGS   := 
+XLANGS   := JA
 XENGINES := gpt4
 
 GET_README  := perl -MTOML -0777E 'say from_toml(<>)->{readme_from}'

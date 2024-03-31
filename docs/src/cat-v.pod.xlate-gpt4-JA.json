@@ -13,14 +13,15 @@
    "If I<name> begins with C<+>, add that character in addition to the existing configuration.\n" : "I<name>がC<+>で始まる場合、既存の設定にその文字を追加します。\n",
    "If a letter other than an alphabet or a number is given, it will be replaced by that letter.\n" : "アルファベットや数字以外の文字が与えられた場合、その文字に置き換えられます。\n",
    "If a string of two or more characters is given, it is interpreted as a Unicode character name.\n" : "2文字以上の文字列が与えられた場合、Unicode文字名として解釈されます。\n",
-   "If flag begins with C<+>, that character is added to the repeat list. So\n" : "フラグが C<+> で始まる場合、その文字は繰り返しリストに追加されます。したがって\n",
+   "If flag begins with C<+>, that character is added to the repeat list.\n" : "フラグがC<+>で始まる場合、その文字は繰り返しリストに追加されます。\n",
    "In such cases, tab expansion can be temporarily enabled by the C<-t> option.\n" : "そのような場合、C<-t>オプションで一時的にタブ展開を有効にすることができます。\n",
    "Multiple items can be specified at the same time. The following example sets C<tab> and C<bel> to 0 and C<esc> to C<s>.\n" : "複数の項目を同時に指定することができます。以下の例では、C<tab> と C<bel> を 0 に設定し、C<esc> を C<s> に設定します。\n",
    "Option C<-c nl=1> can also be used to visualize newline characters. For newline characters only, after displaying the result of the conversion, the original character is output at the same time.\n" : "オプション C<-c nl=1> も使用して改行文字を可視化することができます。改行文字のみ、変換の結果を表示した後、元の文字が同時に出力されます。\n",
-   "Set head and following space characters. If the option value is longer than single character, it is evaluated as unicode name.\n" : "先頭と後続のスペース文字を設定します。オプション値が単一文字より長い場合、ユニコード名として評価されます。\n",
+   "Set tab head and following space characters. If the option value is longer than single character, it is evaluated as unicode name.\n" : "タブの先頭とそれに続くスペース文字を設定します。オプションの値が単一文字より長い場合、ユニコード名として評価されます。\n",
    "Set tab width.\n" : "タブ幅を設定します。\n",
    "Set the style how tab is expanded. Select C<symbol> or C<shade> for example. If two style names are combined, like C<squat-arrow,middle-dot>, use C<squat-arrow> for tabhead and C<middle-dot> for tabspace.\n" : "タブの展開方法のスタイルを設定します。例えばC<symbol>やC<shade>を選択します。2つのスタイル名が組み合わされている場合、例えばC<squat-arrow,middle-dot>、タブの先頭にはC<squat-arrow>を、タブスペースにはC<middle-dot>を使用します。\n",
    "Show available style list if called without parameter. Styles are defined in L<Text::ANSI::Fold> library.\n" : "パラメータなしで呼び出された場合、利用可能なスタイルリストを表示します。スタイルはL<Text::ANSI::Fold>ライブラリで定義されています。\n",
+   "So the above command will have the same meaning as if you had written as following.\n" : "したがって、上記のコマンドは、以下のように書いた場合と同じ意味を持ちます。\n",
    "Sometimes it is desirable to visualize whitespace characters. The C<cat -t> command can visualize tab characters, but the problem is that it breaks the visual format. We may want to see which parts are tabs and which parts are space characters while preserving the format. Extra whitespace characters at the end of a line can also be noticed by visualizing them.\n" : "時には空白文字を可視化したいことがあります。C<cat -t> コマンドはタブ文字を可視化できますが、問題は視覚的なフォーマットを壊してしまうことです。フォーマットを保持しながら、どの部分がタブでどの部分がスペース文字であるかを見たいかもしれません。行末の余分な空白文字も可視化することで気づくことができます。\n",
    "Specifies the character type for outputting the original character at the same time as the converted character. The default setting is C<nl,np>. The following will correctly output the original ANSI sequence with the escape character visualized.\n" : "変換された文字と同時に元の文字を出力するための文字タイプを指定します。デフォルト設定はC<nl,np>です。以下は、エスケープ文字を視覚化した状態で元のANSIシーケンスを正しく出力します。\n",
    "Tab characters are expanded by default. To explicitly disable it, use the B<-T> or B<--no-expand> option.\n" : "タブ文字はデフォルトで展開されます。明示的に無効にするには、B<-T>またはB<--no-expand>オプションを使用します。\n",
@@ -34,6 +35,5 @@
    "Using C<cat-v>, tab characters are visualized in such a way that the space on the display does not change.\n" : "C<cat-v> を使用すると、表示上のスペースが変わらないようにタブ文字が可視化されます。\n",
    "You can disable tab expansion by default by putting the following setting in your C<~/.cat-vrc> file.\n" : "C<~/.cat-vrc>ファイルに以下の設定を入れることで、デフォルトでタブ展開を無効にすることができます。\n",
    "cat-v - visualize non-printing characters\n" : "cat-v - 非表示文字の可視化\n",
-   "cat-v [ options ] args ...\n" : "cat-v [ オプション ] 引数 ...\n",
-   "will have the same meaning as if you had written:\n" : "は、あなたが書いたのと同じ意味を持ちます：\n"
+   "cat-v [ options ] args ...\n" : "cat-v [ オプション ] 引数 ...\n"
 }
