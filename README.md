@@ -21,17 +21,13 @@ cat-v \[ options \] args ...
        -v   --version       Print version
 
     OPTIONS FOR EACH CHARACTERS
-      --nl                  Enable newline
+      --esc                 Enable escape
+      --esc=c               Show escape in control format
+      --esc=+c              Show escape in control format and reproduce
       --nl=0                Disable newline
-      --nl='RETURN SYMBOL'  Unicode name
-
-    EXAMPLES
-      cat-v --esc           Visualize escape
-      cat-v --esc=+c        Visualize and reproduce escape character
-      cat-v -c all=s,esc=0  Show by simbol everything but ESC
-      cat-v --ts=shade      Use "shade" style for to visualize tabs
-      cat-v -T              Do not expand tabs
-      cat-v --sp=~          Convert spaces to tilde
+      --sp=~                Convert spaces to tilde
+      --sp='OPEN BOX'       Unicode name
+      --esc=+U+035B         Unicode code point
 
 # VERSION
 
@@ -41,8 +37,7 @@ Version 0.01
 
 The `cat -v` command is often used to display characters that cannot
 be displayed, but is not always suitable for viewing the output of
-modern applications because it converts all non-ASCII graphic
-characters.
+modern applications because it converts all non-ASCII characters.
 
 The `cat-v` command visualizes whitespace and control characters
 while preserving the display of displayable graphic characters.
@@ -60,10 +55,10 @@ by ANSI escape sequences are retained.
 
 Sometimes it is desirable to visualize whitespace characters.  The
 `cat -t` command can visualize tab characters, but the problem is
-that it breaks the visual format.  Sometimes we want to see which
-parts are tabs and which parts are whitespace characters while
-preserving the format.  Extra whitespace characters at the end of a
-line can also be noticed by visualizing them.
+that it breaks the visual format.  We may want to see which parts are
+tabs and which parts are space characters while preserving the format.
+Extra whitespace characters at the end of a line can also be noticed
+by visualizing them.
 
 Using `cat-v`, tab characters are visualized in such a way that the
 space on the display does not change.
@@ -128,7 +123,7 @@ characters
 
 - **-n**, **--reset**
 
-    Disables all character conversions.
+    Disables all character conversions and resets repeat characters.
 
 - **-c**, **--visible** _name_=_flag_,...
 
@@ -156,12 +151,13 @@ characters
         cat-v -c tab=bel=0,esc=s
 
     If `all` is specified for the name, the value applies to all
-    character types.  You can enable all and then exclude only escapes as
-    follows
+    character types.  The following command sets all characters to `s`,
+    then sets `nl`, `nl`, `np`, and `sp` to `m` and disables `esc`.
+    This is the default state.
 
-        cat-v -c all=s,esc=0
+        cat-v -c all=s,nul=nl=np=sp=m,esc=0
 
-- **--**_name_\[=_flag_\]
+- **--**_name_\[=_replacement_\]
 
     All control characters can also be accessed by an option with their
     name.  For example, option `--nl` is defined for the newline

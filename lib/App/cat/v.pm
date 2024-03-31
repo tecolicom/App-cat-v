@@ -114,6 +114,7 @@ use Getopt::EX::Hashed; {
 	for my $name (keys $_->flags->%*) {
 	    $_->flags->{$name} = '0';
 	}
+	$_->repeat = '';
     };
 
     has '+repeat' => sub {
@@ -211,20 +212,20 @@ sub options {
 
 sub setup {
     my $app = shift;
-    my $symbol = $app->convert;
+    my $convert = $app->convert;
     my $flags = $app->flags;
     for my $name (keys $flags->%*) {
 	my $flag = $flags->{$name} or next;
 	my $char = $control{$name};
 	my $code = $char->code;
 	if ($flag eq 'c') {
-	    $symbol->{$code} = '^' . pack('c',ord($code)+64);
+	    $convert->{$code} = '^' . pack('c',ord($code)+64);
 	}
 	elsif ($flag =~ /^([a-z\d])$/i) {
-	    $symbol->{$code} = $char->visible($flag);
+	    $convert->{$code} = $char->visible($flag);
 	}
 	else {
-	    $symbol->{$char->code} = $flag;
+	    $convert->{$char->code} = $flag;
 	}
     }
     return $app;

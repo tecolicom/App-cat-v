@@ -10,4 +10,4 @@ static_install = "auto"
 
 [release]
 branch = "main"
-do_not_upload_to_cpan = 1
+do_not_upload_to_cpan = 0
