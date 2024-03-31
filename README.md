@@ -182,11 +182,11 @@ characters
         cat-v --nl='RETURN SYMBOL' --sp='MIDDLE DOT'
 
     If flag begins with `+`, that character is added to the repeat list.
-    So
 
         cat -v --esc=+s
 
-    will have the same meaning as if you had written:
+    So the above command will have the same meaning as if you had written
+    as following.
 
         cat -v --esc=s --repeat +esc
 
@@ -229,9 +229,8 @@ characters
 - **--tabhead**=#
 - **--tabspace**=#
 
-    Set head and following space characters.
-    If the option value is longer than single character, it is evaluated
-    as unicode name.
+    Set tab head and following space characters.  If the option value is
+    longer than single character, it is evaluated as unicode name.
 
 - **--tabstyle**, **--ts**
 - **--tabstyle**=_style_, **--ts**=...
