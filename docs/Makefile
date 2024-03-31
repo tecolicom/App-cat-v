@@ -1,31 +1,41 @@
 .DELETE_ON_ERROR:
 
-LANGS    := DE EL ES ET FR ID JA KO NL RO RU TR ZH
-RM_LANGS := DE FR JA KO RU ZH
+LANGS    := JA KO ZH
+RM_LANGS ?= $(LANGS)
 IGNORE   := VERSION AUTHOR LICENSE
-ENGINES  := deepl gpt3
-XLANGS   := JA
+ENGINES  := deepl
+XLANGS   := 
 XENGINES := gpt4
 
-MOD_NAME := $(shell perl -MJSON -0777nE 'say decode_json($$_)->{name}' ../META.json)
-MOD_PATH := ../lib/$(subst -,/,$(MOD_NAME)).pm
-MOD_FILE := $(notdir $(MOD_PATH))
-MOD_DIR  := $(dir $(MOD_PATH))
-MOD_NAME := $(MOD_FILE:.pm=)
-SRC_DIR  := src
+GET_README  := perl -MTOML -0777nE 'say from_toml($$_)->{readme_from}'
+README_FROM := $(shell $(GET_README) ../minil.toml)
+ifneq ($(README_FROM),)
+  MOD_PATH := ../$(README_FROM)
+  MOD_NAME := $(notdir $(MOD_PATH))
+  ORIGIN   := $(MOD_PATH)
+  POD      := $(MOD_NAME).pod
+else
+  MOD_NAME := $(shell perl -MJSON -0777nE 'say decode_json($$_)->{name}' ../META.json)
+  MOD_PATH := ../lib/$(subst -,/,$(MOD_NAME)).pm
+  MOD_FILE := $(notdir $(MOD_PATH))
+  MOD_DIR  := $(dir $(MOD_PATH))
+  MOD_NAME := $(MOD_FILE:.pm=)
+  ORIGIN   := $(MOD_PATH)
+  PM       := $(notdir $(ORIGIN))
+  POD      := $(PM:.pm=.pod)
+endif
 
-ORIGIN   := $(MOD_PATH)
-PM       := $(notdir $(ORIGIN))
-POD      := $(PM:.pm=.pod)
+SRC_DIR  := src
 SRC      := $(POD:%=$(if $(SRC_DIR),$(SRC_DIR)/,)%)
+NAMES    := $(POD:%=$(notdir %))
 PODS     := $(foreach engin,$(ENGINES),$(foreach lang,$(LANGS),$(SRC:.pod=.$(engin)-$(lang).pod)))
-MDS      := $(foreach engin,$(ENGINES),$(foreach lang,$(LANGS),$(PM:.pm=.$(engin)-$(lang).md)))
+MDS      := $(foreach engin,$(ENGINES),$(foreach lang,$(LANGS),$(NAMES:.pod=.$(engin)-$(lang).md)))
 READMES  := $(foreach engin,$(ENGINES),$(RM_LANGS:%=../README.$(engin)-%.md))
 ###########
 # Translate only JA by gpt-4
 #----------
 PODS     += $(foreach engin,$(XENGINES),$(foreach lang,$(XLANGS),$(SRC:.pod=.$(engin)-$(lang).pod)))
-MDS      += $(foreach engin,$(XENGINES),$(foreach lang,$(XLANGS),$(PM:.pm=.$(engin)-$(lang).md)))
+MDS      += $(foreach engin,$(XENGINES),$(foreach lang,$(XLANGS),$(NAMES:.pod=.$(engin)-$(lang).md)))
 READMES  += $(foreach engin,$(XENGINES),$(XLANGS:%=../README.$(engin)-%.md))
 ###########
 ALL      := $(PODS) $(MDS) README.md $(READMES)
@@ -42,7 +52,10 @@ GREPLE := perl -I../lib -S greple
 
 PODIFY := $(GREPLE) -Mperl --nocolor --le :pod
 $(foreach mod,$(ORIGIN),$(eval \
-  $(SRCPATH)$(subst .pm,.pod,$(notdir $(mod))): $(mod) Makefile; $(PODIFY) $$< > $$@ \
+  $(if $(filter .pm,$(suffix $(mod))),\
+    $(SRCPATH)$(subst .pm,.pod,$(notdir $(mod))): $(mod) Makefile; $(PODIFY) $$< > $$@,\
+    $(SRCPATH)$(notdir $(mod)).pod: $(mod) Makefile; $(PODIFY) $$< > $$@ \
+  )\
 ))
 
 XLATE := $(GREPLE) -Mxlate
