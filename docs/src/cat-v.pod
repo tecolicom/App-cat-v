@@ -32,7 +32,7 @@ cat-v [ options ] args ...
 
 =head1 VERSION
 
-Version 0.01
+Version 0.99
 
 =head1 DESCRIPTION
 
