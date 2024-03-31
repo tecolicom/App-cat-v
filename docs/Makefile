@@ -7,7 +7,7 @@ ENGINES  := deepl
 XLANGS   := 
 XENGINES := gpt4
 
-GET_README  := perl -MTOML -0777nE 'say from_toml($$_)->{readme_from}'
+GET_README  := perl -MTOML -0777E 'say from_toml(<>)->{readme_from}'
 README_FROM := $(shell $(GET_README) ../minil.toml)
 ifneq ($(README_FROM),)
   MOD_PATH := ../$(README_FROM)
@@ -15,7 +15,7 @@ ifneq ($(README_FROM),)
   ORIGIN   := $(MOD_PATH)
   POD      := $(MOD_NAME).pod
 else
-  MOD_NAME := $(shell perl -MJSON -0777nE 'say decode_json($$_)->{name}' ../META.json)
+  MOD_NAME := $(shell perl -MJSON -0777E 'say decode_json(<>)->{name}' ../META.json)
   MOD_PATH := ../lib/$(subst -,/,$(MOD_NAME)).pm
   MOD_FILE := $(notdir $(MOD_PATH))
   MOD_DIR  := $(dir $(MOD_PATH))
