@@ -32,6 +32,10 @@
          }
       },
       "develop" : {
+         "recommends" : {
+            "App::Greple::subst::desumasu" : "0",
+            "App::Greple::xlate" : "0"
+         },
          "requires" : {
             "Test::CPAN::Meta" : "0",
             "Test::MinimumVersion::Fast" : "0.04",

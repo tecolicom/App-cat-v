@@ -2,7 +2,6 @@
 
 LANGS    := JA KO ZH
 RM_LANGS ?= $(LANGS)
-IGNORE   := VERSION AUTHOR LICENSE
 ENGINES  := deepl
 XLANGS   := JA
 XENGINES := gpt4
@@ -58,16 +57,9 @@ $(foreach mod,$(ORIGIN),$(eval \
   )\
 ))
 
-XLATE := $(GREPLE) -Mxlate
-XLATE += $(if $(XLATE_LABOR),--xlate-labor,--xlate)
-XLATE += --xlate-cache=$(if $(XLATE_INIT),clear,yes)
-XLATE += --match-podtext --xlate-format=none --all --need=0
-
-ifdef IGNORE
-$(foreach ignore,$(IGNORE),$(eval \
-  XLATE += --exclude '^=head\d[ ]+(?i:$(ignore))\b(?s:.*?)(?=^=|\z)'\
-))
-endif
+XLATE := xlate
+XLATE += $(if $(XLATE_LABOR),,-a)
+XLATE += $(if $(XLATE_INIT),-r)
 
 deepl_JA_FORM   ?= desumasu
 deepl_JA_DICT   := $(wildcard *.dict)
@@ -79,9 +71,9 @@ deepl_JA_FILTER := $(GREPLE) -Mperl -Msubst::desumasu \
 define LANG_POD
   $(SRCPATH)%.$2-$1.pod: $(SRCPATH)%.pod Makefile
   ifdef $2_$1_FILTER
-	$$(XLATE) --xlate-engine=$2 --xlate-to $1 $$< | $$($2_$1_FILTER) > $$@
+	$$(XLATE) -e $2 -t $1 $$< | $$($2_$1_FILTER) > $$@
   else
-	$$(XLATE) --xlate-engine=$2 --xlate-to $1 $$< > $$@
+	$$(XLATE) -e $2 -t $1 $$< > $$@
   endif
 endef
 

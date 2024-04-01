@@ -9,6 +9,11 @@ requires 'Getopt::EX::Hashed';
 requires 'Text::ANSI::Fold', '2.22';
 requires 'Text::ANSI::Tabs', '1.0501';
 
+on 'develop' => sub {
+    recommends 'App::Greple::xlate';
+    recommends 'App::Greple::subst::desumasu';
+};
+
 on 'test' => sub {
     requires 'Test::More', '0.98';
 };
