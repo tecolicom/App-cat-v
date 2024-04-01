@@ -30,7 +30,7 @@ cat-v \[ オプション \] 引数 ...
 
 # VERSION
 
-Version 0.99
+Version 0.9901
 
 # DESCRIPTION
 

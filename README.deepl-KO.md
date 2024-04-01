@@ -30,7 +30,7 @@ cat-v \[ 옵션 \] args ...
 
 # VERSION
 
-Version 0.99
+Version 0.9901
 
 # DESCRIPTION
 

@@ -2,6 +2,10 @@ Revision history for Perl extension App-cat-v
 
 {{$NEXT}}
 
+0.9901 2024-04-01T10:20:20Z
+
+    - organized docs directory
+
 0.99 2024-03-31T10:57:54Z
 
     - cat-v command release
