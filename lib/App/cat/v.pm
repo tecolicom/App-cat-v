@@ -99,7 +99,8 @@ use Getopt::EX::Hashed; {
     Getopt::EX::Hashed->configure(DEFAULT => [ is => 'rw' ]);
     has visible    => ' c  =s@ ' ;
     has reset      => ' n      ' ;
-    has expand     => ' t  !   ' , default => 1 ;
+    has expand     => ' t  :1  ' , default => 1 ;
+    has no_expand  => ' T  !   ' ;
     has repeat     => '    =s  ' , default => 'nl,np' ;
     has debug      => ' d      ' ;
     has tabstop    => ' x  =i  ' , default => 8, min => 1 ;
@@ -115,6 +116,19 @@ use Getopt::EX::Hashed; {
 	    $_->flags->{$name} = '0';
 	}
 	$_->repeat = '';
+    };
+
+    has '+expand' => sub {
+	$_->expand = $_[1];
+	if ($_[1] > 1) {
+	    $_->tabstop = $_[1];
+	    Text::ANSI::Tabs->configure(tabstop => $_->tabstop);
+	}
+    };
+
+    #  -T negate -t
+    has '+no_expand' => sub {
+	$_->expand = ! $_[1];
     };
 
     has '+repeat' => sub {
@@ -137,11 +151,6 @@ use Getopt::EX::Hashed; {
 	    $c = $u;
 	}
 	$_->flags->{$name} = $c;
-    };
-
-    #  -T negate -t
-    has T => '!', action => sub {
-	$_->expand = ! $_[1];
     };
 
     ### --tabstop, --tabstyle

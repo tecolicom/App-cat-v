@@ -11,7 +11,7 @@ cat-v \[ options \] args ...
        -n   --reset         Disable all character conversion
        -c   --visible=#     Specify visualize characters
             --repeat=#      Specify repeat characters
-       -t   --expand        Expand tabs
+       -t   --expand[=#]    Expand tabs
        -T   --no-expand     Do not expand tabs
       --ts  --tabstyle=#    Set tab style
             --tabstop=#     Set tab width
@@ -204,11 +204,17 @@ characters
 
         cat-v -c esc --repeat +esc
 
-- **-t**, **--expand**
+- **-t**\[_n_\], **--expand**\[=_n_\]
 - **-T**, **--no-expand**
 
     Tab characters are expanded by default.  To explicitly disable it, use
     the **-T** or **--no-expand** option.
+
+    If an optional number is given for the **-t** option, it is treated as
+    a tab width.  The following two commands are equivalent:
+
+        cat-v -t4
+        cat-v -t --tabstop=4
 
     By default, the style `pin` is applied, which can be changed with
     `--tabstyle`. If the `--tabstyle` option is specified with no
