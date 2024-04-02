@@ -13,6 +13,7 @@
    "If I<name> begins with C<+>, add that character in addition to the existing configuration.\n" : "I<name>がC<+>で始まる場合、既存の設定にその文字を追加します。\n",
    "If a letter other than an alphabet or a number is given, it will be replaced by that letter.\n" : "アルファベットや数字以外の文字が与えられた場合、その文字に置き換えられます。\n",
    "If a string of two or more characters is given, it is interpreted as a Unicode character name.\n" : "2文字以上の文字列が与えられた場合、Unicode文字名として解釈されます。\n",
+   "If an optional number is given for the B<-t> option, it is treated as a tab width. The following two commands are equivalent:\n" : "B<-t> オプションに任意の数値が指定された場合、それはタブ幅として扱われます。以下の二つのコマンドは同等です：\n",
    "If flag begins with C<+>, that character is added to the repeat list.\n" : "フラグがC<+>で始まる場合、その文字は繰り返しリストに追加されます。\n",
    "In such cases, tab expansion can be temporarily enabled by the C<-t> option.\n" : "そのような場合、C<-t>オプションで一時的にタブ展開を有効にすることができます。\n",
    "Multiple items can be specified at the same time. The following example sets C<tab> and C<bel> to 0 and C<esc> to C<s>.\n" : "複数の項目を同時に指定することができます。以下の例では、C<tab> と C<bel> を 0 に設定し、C<esc> を C<s> に設定します。\n",

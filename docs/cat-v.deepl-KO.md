@@ -10,7 +10,7 @@ cat-v \[ 옵션 \] args ...
        -n   --reset         Disable all character conversion
        -c   --visible=#     Specify visualize characters
             --repeat=#      Specify repeat characters
-       -t   --expand        Expand tabs
+       -t   --expand[=#]    Expand tabs
        -T   --no-expand     Do not expand tabs
       --ts  --tabstyle=#    Set tab style
             --tabstop=#     Set tab width
@@ -30,7 +30,7 @@ cat-v \[ 옵션 \] args ...
 
 # VERSION
 
-Version 0.9901
+Version 0.9902
 
 # DESCRIPTION
 
@@ -172,10 +172,15 @@ Version 0.9901
 
         cat-v -c esc --repeat +esc
 
-- **-t**, **--expand**
+- **-t**\[_n_\], **--expand**\[=_n_\]
 - **-T**, **--no-expand**
 
     탭 문자는 기본적으로 확장됩니다. 명시적으로 비활성화하려면 **-T** 또는 **--확장 안 함** 옵션을 사용합니다.
+
+    **-t** 옵션에 선택적 숫자를 지정하면 탭 너비로 취급됩니다. 다음 두 명령은 동일합니다:
+
+        cat-v -t4
+        cat-v -t --tabstop=4
 
     기본적으로 `핀` 스타일이 적용되며, `--탭 스타일`로 변경할 수 있습니다. `--탭스타일` 옵션을 인자 없이 지정하면 사용 가능한 스타일 목록이 표시됩니다.
 

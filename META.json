@@ -75,7 +75,7 @@
          "web" : "https://github.com/tecolicom/App-cat-v"
       }
    },
-   "version" : "0.9901",
+   "version" : "0.9902",
    "x_authority" : "cpan:UTASHIRO",
    "x_contributors" : [
       "Kazumasa Utashiro <kaz@utashiro.com>"

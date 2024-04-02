@@ -13,6 +13,7 @@
    "If I<name> begins with C<+>, add that character in addition to the existing configuration.\n" : "如果 I<name> 以 C<+> 开头，则在现有配置的基础上添加该字符。\n",
    "If a letter other than an alphabet or a number is given, it will be replaced by that letter.\n" : "如果输入的不是字母或数字，则会被该字母取代。\n",
    "If a string of two or more characters is given, it is interpreted as a Unicode character name.\n" : "如果输入两个或两个以上字符的字符串，该字符串将被解释为 Unicode 字符名。\n",
+   "If an optional number is given for the B<-t> option, it is treated as a tab width. The following two commands are equivalent:\n" : "如果为 B<-t> 选项指定了一个可选数字，该数字将被视为制表符宽度。以下两条命令是等价的：\n",
    "If flag begins with C<+>, that character is added to the repeat list.\n" : "如果标志以 C<+> 开头，则该字符将被添加到重复列表中。\n",
    "In such cases, tab expansion can be temporarily enabled by the C<-t> option.\n" : "在这种情况下，可以使用 C<-t> 选项临时启用制表符扩展。\n",
    "Multiple items can be specified at the same time. The following example sets C<tab> and C<bel> to 0 and C<esc> to C<s>.\n" : "可以同时指定多个项目。下面的示例将 C<tab> 和 C<bel> 设置为 0，将 C<esc> 设置为 C<s>。\n",

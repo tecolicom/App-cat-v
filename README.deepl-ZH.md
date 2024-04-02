@@ -10,7 +10,7 @@ cat-v \[ 选项 \] args ...
        -n   --reset         Disable all character conversion
        -c   --visible=#     Specify visualize characters
             --repeat=#      Specify repeat characters
-       -t   --expand        Expand tabs
+       -t   --expand[=#]    Expand tabs
        -T   --no-expand     Do not expand tabs
       --ts  --tabstyle=#    Set tab style
             --tabstop=#     Set tab width
@@ -30,7 +30,7 @@ cat-v \[ 选项 \] args ...
 
 # VERSION
 
-Version 0.9901
+Version 0.9902
 
 # DESCRIPTION
 
@@ -172,10 +172,15 @@ Version 0.9901
 
         cat-v -c esc --repeat +esc
 
-- **-t**, **--expand**
+- **-t**\[_n_\], **--expand**\[=_n_\]
 - **-T**, **--no-expand**
 
     Tab 字符默认为展开字符。要明确禁用它，请使用 **-T** 或 **--no-expand** 选项。
+
+    如果为 **-t** 选项指定了一个可选数字，该数字将被视为制表符宽度。以下两条命令是等价的：
+
+        cat-v -t4
+        cat-v -t --tabstop=4
 
     默认情况下，应用 `pin` 样式，可以使用 `--tabstyle` 进行更改。如果 `--tabstyle` 选项没有指定参数，则会显示可用样式列表。
 

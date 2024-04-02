@@ -2,6 +2,10 @@ Revision history for Perl extension App-cat-v
 
 {{$NEXT}}
 
+0.9902 2024-04-02T10:12:53Z
+
+    - make option -t to take tab width
+
 0.9901 2024-04-01T10:20:20Z
 
     - organized docs directory

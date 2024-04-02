@@ -12,7 +12,7 @@ cat-v [ オプション ] args ...
      -n   --reset         Disable all character conversion
      -c   --visible=#     Specify visualize characters
           --repeat=#      Specify repeat characters
-     -t   --expand        Expand tabs
+     -t   --expand[=#]    Expand tabs
      -T   --no-expand     Do not expand tabs
     --ts  --tabstyle=#    Set tab style
           --tabstop=#     Set tab width
@@ -32,7 +32,7 @@ cat-v [ オプション ] args ...
 
 =head1 VERSION
 
-Version 0.9901
+Version 0.9902
 
 =head1 DESCRIPTION
 
@@ -182,11 +182,16 @@ I<name> が C<+> で始まる場合は、既存の設定に加えてその文字
 
     cat-v -c esc --repeat +esc
 
-=item B<-t>, B<--expand>
+=item B<-t>[I<n>], B<--expand>[=I<n>]
 
 =item B<-T>, B<--no-expand>
 
 タブ文字はデフォルトで展開されます。明示的に無効にするには、B<-T>またはB<--no-expand>オプションを使用します。
+
+B<-t>オプションに任意の数字が与えられた場合、それはタブ幅として扱われます。次の2つのコマンドは等価である：
+
+    cat-v -t4
+    cat-v -t --tabstop=4
 
 デフォルトでは、スタイル C<pin> が適用されますが、これは C<--tabstyle> で変更できます。C<--tabstyle>オプションが引数なしで指定された場合、利用可能なスタイルのリストが表示されます。
 

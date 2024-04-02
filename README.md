@@ -31,7 +31,7 @@ cat-v \[ options \] args ...
 
 # VERSION
 
-Version 0.9901
+Version 0.9902
 
 # DESCRIPTION
 
