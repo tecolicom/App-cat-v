@@ -2,7 +2,7 @@
    "All control characters can also be accessed by an option with their name. For example, option C<--nl> is defined for the newline character.\n" : "全ての制御文字は、その名前でオプションを使用してアクセスすることもできます。例えば、改行文字にはオプション C<--nl> が定義されています。\n",
    "Also, by default, escape characters are not converted, so decorations by ANSI escape sequences are retained.\n" : "また、デフォルトではエスケープ文字は変換されないため、ANSIエスケープシーケンスによる装飾が保持されます。\n",
    "At this time, Unicode markings are available for the following characters\n" : "この時点で、以下の文字に対してUnicodeマーキングが利用可能です\n",
-   "By default, the style C<pin> is applied, which can be changed with C<--tabstyle>. If the C<--tabstyle> option is specified with no arguments, a list of available styles is displayed.\n" : "デフォルトでは、スタイルC<pin>が適用されますが、C<--tabstyle>で変更することができます。引数なしでC<--tabstyle>オプションが指定された場合、利用可能なスタイルのリストが表示されます。\n",
+   "By default, the style C<needle> is applied, which can be changed with C<--tabstyle>. If the C<--tabstyle> option is specified with no arguments, a list of available styles is displayed.\n" : "デフォルトでは、スタイル C<needle> が適用されますが、C<--tabstyle> で変更することができます。引数なしで C<--tabstyle> オプションが指定された場合、利用可能なスタイルのリストが表示されます。\n",
    "Control characters can be displayed in control format and Unicode symbol characters. By default, control characters other than newline and escape characters are displayed as corresponding Unicode symbols.\n" : "制御文字は制御フォーマットとUnicode記号文字で表示することができます。デフォルトでは、改行とエスケープ文字以外の制御文字は対応するUnicode記号として表示されます。\n",
    "Disables all character conversions and resets repeat characters.\n" : "全ての文字変換を無効にし、繰り返し文字をリセットします。\n",
    "From CPAN archive:\n" : "CPANアーカイブから：\n",

@@ -2,7 +2,7 @@
    "All control characters can also be accessed by an option with their name. For example, option C<--nl> is defined for the newline character.\n" : "모든 제어 문자는 이름과 함께 옵션으로 액세스할 수도 있습니다. 예를 들어, 옵션 C<--nl>은 개행 문자에 대해 정의됩니다.\n",
    "Also, by default, escape characters are not converted, so decorations by ANSI escape sequences are retained.\n" : "또한 기본적으로 이스케이프 문자는 변환되지 않으므로 ANSI 이스케이프 시퀀스에 의한 장식이 유지됩니다.\n",
    "At this time, Unicode markings are available for the following characters\n" : "현재 다음 문자에 대해 유니코드 표시를 사용할 수 있습니다.\n",
-   "By default, the style C<pin> is applied, which can be changed with C<--tabstyle>. If the C<--tabstyle> option is specified with no arguments, a list of available styles is displayed.\n" : "기본적으로 C<핀> 스타일이 적용되며, C<--탭 스타일>로 변경할 수 있습니다. C<--탭스타일> 옵션을 인자 없이 지정하면 사용 가능한 스타일 목록이 표시됩니다.\n",
+   "By default, the style C<needle> is applied, which can be changed with C<--tabstyle>. If the C<--tabstyle> option is specified with no arguments, a list of available styles is displayed.\n" : "기본적으로 C<-needle> 스타일이 적용되며, C<--탭스타일>로 변경할 수 있습니다. C<--탭스타일> 옵션을 인자 없이 지정하면 사용 가능한 스타일 목록이 표시됩니다.\n",
    "Control characters can be displayed in control format and Unicode symbol characters. By default, control characters other than newline and escape characters are displayed as corresponding Unicode symbols.\n" : "제어 문자는 제어 형식과 유니코드 기호 문자로 표시할 수 있습니다. 기본적으로 개행 및 이스케이프 문자를 제외한 제어 문자는 해당 유니코드 기호로 표시됩니다.\n",
    "Disables all character conversions and resets repeat characters.\n" : "모든 문자 변환을 비활성화하고 반복 문자를 재설정합니다.\n",
    "From CPAN archive:\n" : "CPAN 아카이브에서:\n",
