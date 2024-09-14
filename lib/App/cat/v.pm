@@ -1,6 +1,6 @@
 package App::cat::v;
 
-our $VERSION = "0.9903";
+our $VERSION = "1.00";
 
 use 5.024;
 use warnings;

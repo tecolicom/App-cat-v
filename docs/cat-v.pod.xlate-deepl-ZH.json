@@ -2,6 +2,7 @@
    "All control characters can also be accessed by an option with their name. For example, option C<--nl> is defined for the newline character.\n" : "所有控制字符也可以通过带有其名称的选项访问。例如，选项 C<--nl> 是为换行符定义的。\n",
    "Also, by default, escape characters are not converted, so decorations by ANSI escape sequences are retained.\n" : "此外，默认情况下不转换转义字符，因此保留了 ANSI 转义序列的装饰。\n",
    "At this time, Unicode markings are available for the following characters\n" : "目前，Unicode 标识可用于以下字符\n",
+   "Before printing the converted string, first output the original string.\n" : "在打印转换后的字符串之前，首先输出原始字符串。\n",
    "By default, the style C<needle> is applied, which can be changed with C<--tabstyle>. If the C<--tabstyle> option is specified with no arguments, a list of available styles is displayed.\n" : "默认情况下使用 C<needle> 样式，可以使用 C<--tabstyle> 更改。如果指定 C<--tabstyle> 选项且不带参数，则会显示可用样式列表。\n",
    "Control characters can be displayed in control format and Unicode symbol characters. By default, control characters other than newline and escape characters are displayed as corresponding Unicode symbols.\n" : "控制字符可以用控制格式和 Unicode 符号字符显示。默认情况下，换行符和转义字符以外的控制字符显示为相应的 Unicode 符号。\n",
    "Disables all character conversions and resets repeat characters.\n" : "禁用所有字符转换并重置重复字符。\n",
