@@ -10,7 +10,8 @@ cat-v \[ options \] args ...
     OPTIONS
        -n   --reset         Disable all character conversion
        -c   --visible=#     Specify visualize characters
-            --repeat=#      Specify repeat characters
+       -r   --repeat=#      Specify repeat characters
+       -R   --replicate     Replicate original line as is
        -t   --expand[=#]    Expand tabs
        -T   --no-expand     Do not expand tabs
       --ts  --tabstyle=#    Set tab style
@@ -203,6 +204,11 @@ characters
     existing configuration.
 
         cat-v -c esc --repeat +esc
+
+- **-R**, **--replicate**
+
+    Before printing the converted string, first output the original
+    string.
 
 - **-t**\[_n_\], **--expand**\[=_n_\]
 - **-T**, **--no-expand**
