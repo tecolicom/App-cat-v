@@ -184,12 +184,12 @@ characters
 
     If flag begins with `+`, that character is added to the repeat list.
 
-        cat -v --esc=+s
+        cat-v --esc=+s
 
     So the above command will have the same meaning as if you had written
     as following.
 
-        cat -v --esc=s --repeat +esc
+        cat-v --esc=s --repeat +esc
 
 - **--repeat**=_name_\[,_name_...\]
 
