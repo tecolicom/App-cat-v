@@ -119,6 +119,7 @@ characters
     nl    \x{23CE}  ⏎  RETURN SYMBOL
     np    \x{2398}  ⎘  NEXT PAGE
     sp    \x{00B7}  ·  MIDDLE DOT
+    del   \x{232B}  ⌫  ERASE TO THE LEFT
 
 # OPTIONS
 
