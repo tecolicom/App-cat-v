@@ -103,7 +103,7 @@ use Getopt::EX::Hashed; {
     has expand     => ' t  :1  ' , default => 1 ;
     has no_expand  => ' T  !   ' ;
     has repeat     => ' r  =s  ' , default => 'nl,np' ;
-    has replicate  => ' R      ' ;
+    has original   => ' o  +   ' ;
     has debug      => ' d      ' ;
     has tabstop    => ' x  =i  ' , default => 8, min => 1 ;
     has tabhead    => '    =s  ' ;
@@ -255,10 +255,14 @@ sub doit {
 	}
     };
     while (<>) {
-	print if $app->replicate;
+	my $orig = $_;
 	$_ = ansi_expand($_) if $app->expand;
 	s{(?=(${repeat_re}?))([$replace]|(?#bug?)(?!))}{$convert->{$2}$1}g
 	    if $replace ne '';
+	if ($app->original > 1 or
+	    $app->original and $_ ne $orig) {
+	    print $orig;
+	}
 	print;
     }
 }
