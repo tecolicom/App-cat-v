@@ -11,7 +11,7 @@ cat-v \[ options \] args ...
        -n   --reset         Disable all character conversion
        -c   --visible=#     Specify visualize characters
        -r   --repeat=#      Specify repeat characters
-       -o   --orignal       Print original line as is
+       -o   --original      Print original line as is
        -t   --expand[=#]    Expand tabs
        -T   --no-expand     Do not expand tabs
       --ts  --tabstyle=#    Set tab style
@@ -211,6 +211,9 @@ characters
     If the converted string is different from the original string, the
     original string is output before the converted string is output.  If
     specified twice, the original string is always printed.
+
+    You can use this output with [App::cdif](https://metacpan.org/pod/App%3A%3Acdif)'s `--line-by-line`
+    (`--lxl`) option.
 
 - **-t**\[_n_\], **--expand**\[=_n_\]
 - **-T**, **--no-expand**

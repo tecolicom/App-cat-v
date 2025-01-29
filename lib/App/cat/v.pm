@@ -4,6 +4,7 @@ our $VERSION = "1.01";
 
 use 5.024;
 use warnings;
+use open IO => ':utf8', ':std';
 
 use utf8;
 use Encode;
@@ -104,7 +105,7 @@ use Getopt::EX::Hashed; {
     has expand     => ' t  :1  ' , default => 1 ;
     has no_expand  => ' T  !   ' ;
     has repeat     => ' r  =s  ' , default => 'nl,np' ;
-    has original   => ' o  +   ' ;
+    has original   => ' o  +   ' , default => 0 ;
     has debug      => ' d      ' ;
     has tabstop    => ' x  =i  ' , default => 8, min => 1 ;
     has tabhead    => '    =s  ' ;
@@ -261,7 +262,7 @@ sub doit {
 	s{(?=(${repeat_re}?))([$replace]|(?#bug?)(?!))}{$convert->{$2}$1}g
 	    if $replace ne '';
 	if ($app->original > 1 or
-	    $app->original and $_ ne $orig) {
+	    ($app->original and $_ ne $orig)) {
 	    print $orig;
 	}
 	print;
