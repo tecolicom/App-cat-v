@@ -53,7 +53,8 @@ my %control = (
     can  => [ 's', "\x18", { s => "\x{2418}", } ], # ␘ SYMBOL FOR CANCEL
     em   => [ 's', "\x19", { s => "\x{2419}", } ], # ␙ SYMBOL FOR END OF MEDIUM
     sub  => [ 's', "\x1a", { s => "\x{241A}", } ], # ␚ SYMBOL FOR SUBSTITUTE
-    esc  => [ '0', "\x1b", { s => "\x{241B}", } ], # ␛ SYMBOL FOR ESCAPE
+    esc  => [ '0', "\x1b", { s => "\x{241B}",      # ␛ SYMBOL FOR ESCAPE
+			     m => "\x{21B0}", } ], # ↰ UPWARDS ARROW WITH TIP LEFTWARDS
     fs   => [ 's', "\x1c", { s => "\x{241C}", } ], # ␜ SYMBOL FOR FILE SEPARATOR
     gs   => [ 's', "\x1d", { s => "\x{241D}", } ], # ␝ SYMBOL FOR GROUP SEPARATOR
     rs   => [ 's', "\x1e", { s => "\x{241E}", } ], # ␞ SYMBOL FOR RECORD SEPARATOR
