@@ -1,41 +1,162 @@
-{
-   "All control characters can also be accessed by an option with their name. For example, option C<--nl> is defined for the newline character.\n" : "すべての制御文字は、その名前を持つオプションでアクセスすることもできる。例えば、オプション C<--nl> は改行文字のために定義されています。\n",
-   "Also, by default, escape characters are not converted, so decorations by ANSI escape sequences are retained.\n" : "また、デフォルトではエスケープ文字は変換されないので、ANSIエスケープシーケンスによる装飾は保持されます。\n",
-   "At this time, Unicode markings are available for the following characters\n" : "現時点では、Unicodeマークは以下の文字で利用可能です。\n",
-   "Before printing the converted string, first output the original string.\n" : "変換後の文字列を出力する前に、まず元の文字列を出力する。\n",
-   "By default, the style C<needle> is applied, which can be changed with C<--tabstyle>. If the C<--tabstyle> option is specified with no arguments, a list of available styles is displayed.\n" : "デフォルトではC<needle>スタイルが適用され、C<--tabstyle>で変更できる。C<--tabstyle> オプションが引数なしで指定された場合、利用可能なスタイルのリストが表示される。\n",
-   "Control characters can be displayed in control format and Unicode symbol characters. By default, control characters other than newline and escape characters are displayed as corresponding Unicode symbols.\n" : "制御文字は、制御フォーマットとユニコード記号文字で表示できます。デフォルトでは、改行文字とエスケープ文字以外の制御文字は、対応するユニコード記号として表示されます。\n",
-   "Disables all character conversions and resets repeat characters.\n" : "すべての文字変換を無効にし、繰り返し文字をリセットします。\n",
-   "From CPAN archive:\n" : "CPANアーカイブから：\n",
-   "From GIT repository:\n" : "GITリポジトリから\n",
-   "Git repository.\n" : "Gitリポジトリ。\n",
-   "Give the character type and flags as parameters to specify the character to be visualized and the conversion format.\n" : "可視化する文字と変換形式を指定するために、パラメータとして文字タイプとフラグを与えます。\n",
-   "If C<all> is specified for the name, the value applies to all character types. The following command sets all characters to C<s>, then sets C<nl>, C<nl>, C<np>, and C<sp> to C<m> and disables C<esc>. This is the default state.\n" : "名前に C<all> を指定すると、その値はすべての文字タイプに適用されます。次のコマンドは、すべての文字をC<s>に設定し、C<nl>、C<nl>、C<np>、C<sp>をC<m>に設定し、C<esc>を無効にします。これがデフォルトの状態である。\n",
-   "If I<name> begins with C<+>, add that character in addition to the existing configuration.\n" : "I<name> が C<+> で始まる場合は、既存の設定に加えてその文字を追加します。\n",
-   "If a letter other than an alphabet or a number is given, it will be replaced by that letter.\n" : "アルファベットや数字以外の文字が指定された場合は、その文字に置き換えられます。\n",
-   "If a string of two or more characters is given, it is interpreted as a Unicode character name.\n" : "2文字以上の文字列が指定された場合、Unicode文字名として解釈されます。\n",
-   "If an optional number is given for the B<-t> option, it is treated as a tab width. The following two commands are equivalent:\n" : "B<-t>オプションに任意の数字が与えられた場合、それはタブ幅として扱われる。次の2つのコマンドは等価である：\n",
-   "If flag begins with C<+>, that character is added to the repeat list.\n" : "フラグがC<+>で始まる場合、その文字はリピートリストに追加される。\n",
-   "In such cases, tab expansion can be temporarily enabled by the C<-t> option.\n" : "その場合、C<-t>オプションで一時的にタブ展開を有効にすることができる。\n",
-   "Multiple items can be specified at the same time. The following example sets C<tab> and C<bel> to 0 and C<esc> to C<s>.\n" : "複数の項目を同時に指定することができます。以下の例では、C<tab>とC<bel>を0に、C<esc>をC<s>に設定しています。\n",
-   "Option C<-c nl=1> can also be used to visualize newline characters. For newline characters only, after displaying the result of the conversion, the original character is output at the same time.\n" : "オプション C<-c nl=1> は、改行文字を可視化するのにも使える。改行文字の場合のみ、変換結果を表示した後、元の文字も同時に出力される。\n",
-   "Set tab head and following space characters. If the option value is longer than single character, it is evaluated as unicode name.\n" : "タブヘッドとそれに続くスペース文字を設定する。オプ シ ョ ン値が 1 文字 よ り 長い場合は、 unicode 名 と し て評価 さ れます。\n",
-   "Set tab width.\n" : "タブ幅を設定する。\n",
-   "Set the style how tab is expanded. Select C<symbol> or C<shade> for example. If two style names are combined, like C<squat-arrow,middle-dot>, use C<squat-arrow> for tabhead and C<middle-dot> for tabspace.\n" : "タブの展開方法を設定します。例えば、C<記号>またはC<影>を選択します。C<squat-arrow,middle-dot>のように2つのスタイル名を組み合わせた場合、タブヘッドにはC<squat-arrow>を、タブスペースにはC<middle-dot>を使用します。\n",
-   "Show available style list if called without parameter. Styles are defined in L<Text::ANSI::Fold> library.\n" : "パラメータなしで呼ばれた場合、利用可能なスタイルリストを表示する。スタイルは L<Text::ANSI::Fold> ライブラリで定義されています。\n",
-   "So the above command will have the same meaning as if you had written as following.\n" : "つまり、上記のコマンドは、次のように書いたのと同じ意味になる。\n",
-   "Sometimes it is desirable to visualize whitespace characters. The C<cat -t> command can visualize tab characters, but the problem is that it breaks the visual format. We may want to see which parts are tabs and which parts are space characters while preserving the format. Extra whitespace characters at the end of a line can also be noticed by visualizing them.\n" : "空白文字を可視化することが望ましい場合もある。C<cat -t>コマンドはタブ文字を視覚化できるが、問題は視覚的な書式を壊してしまうことである。書式を保持したまま、どの部分がタブでどの部分が空白文字なのかを確認したい場合がある。行末の余分な空白文字も、視覚化することで気づくことができる。\n",
-   "Specifies the character type for outputting the original character at the same time as the converted character. The default setting is C<nl,np>. The following will correctly output the original ANSI sequence with the escape character visualized.\n" : "変換後の文字と同時に元の文字を出力する文字種を指定します。デフォルトはC<nl,np>です。以下のようにすると、エスケープ文字が可視化された元のANSIシーケンスが正しく出力されます。\n",
-   "Tab characters are expanded by default. To explicitly disable it, use the B<-T> or B<--no-expand> option.\n" : "タブ文字はデフォルトで展開されます。明示的に無効にするには、B<-T>またはB<--no-expand>オプションを使用する。\n",
-   "The C<cat -v> command is often used to display characters that cannot be displayed, but is not always suitable for viewing the output of modern applications because it converts all non-ASCII characters.\n" : "C<cat -v>コマンドは、表示できない文字を表示するためによく使われるが、ASCII以外の文字をすべて変換してしまうため、最新のアプリケーションの出力を表示するには必ずしも適していない。\n",
-   "The C<cat-v> command visualizes whitespace and control characters while preserving the display of displayable graphic characters.\n" : "C<cat-v>コマンドは、表示可能なグラフィック文字の表示を維持したまま、空白文字と制御文字を可視化する。\n",
-   "The predecessor of the C<cat-v> command was originally created as the filter module of the L<App::optex> command.\n" : "C<cat-v>コマンドの前身は、もともとL<App::optex>コマンドのフィルタモジュールとして作られたものです。\n",
-   "The second field is the default action. C<s> stands for symbol, C<m> for Unicode mark, and C<0> for no conversion.\n" : "2番目のフィールドはデフォルトの動作です。C<s>は記号、C<m>はUnicodeマーク、C<0>は無変換を表します。\n",
-   "To disable, give the value 0.\n" : "無効にするには0を指定します。\n",
-   "Use the names in the list above to specify by character type. If you want to convert escapes without converting tabs, use the following\n" : "文字の種類で指定するには、上のリストの名前を使う。タブを変換せずにエスケープを変換したい場合は、次のようにします。\n",
-   "Used alone, it activates the visibility of the character.\n" : "単独で使用すると、この文字の可視性が有効になります。\n",
-   "Using C<cat-v>, tab characters are visualized in such a way that the space on the display does not change.\n" : "C<cat-v>を使うと、タブ文字は表示上のスペースが変わらないように視覚化される。\n",
-   "You can disable tab expansion by default by putting the following setting in your C<~/.cat-vrc> file.\n" : "C<~/.cat-vrc>ファイルに以下の設定を記述することで、デフォルトでタブ展開を無効にすることができる。\n",
-   "cat-v - visualize non-printing characters\n" : "cat-v - 非印刷文字を可視化する\n",
-   "cat-v [ options ] args ...\n" : "cat-v [ オプション ] args ...\n"
-}
+[
+   [
+      "cat-v - visualize non-printing characters\n",
+      "cat-v - 非印刷文字を可視化する\n"
+   ],
+   [
+      "cat-v [ options ] args ...\n",
+      "cat-v [ オプション ] args ...\n"
+   ],
+   [
+      "The C<cat -v> command is often used to display characters that cannot be displayed, but is not always suitable for viewing the output of modern applications because it converts all non-ASCII characters.\n",
+      "C<cat -v>コマンドは、表示できない文字を表示するためによく使われるが、ASCII以外の文字をすべて変換してしまうため、最新のアプリケーションの出力を表示するには必ずしも適していない。\n"
+   ],
+   [
+      "The C<cat-v> command visualizes whitespace and control characters while preserving the display of displayable graphic characters.\n",
+      "C<cat-v>コマンドは、表示可能なグラフィック文字の表示を維持したまま、空白文字と制御文字を可視化する。\n"
+   ],
+   [
+      "Also, by default, escape characters are not converted, so decorations by ANSI escape sequences are retained.\n",
+      "また、デフォルトではエスケープ文字は変換されないので、ANSIエスケープシーケンスによる装飾は保持されます。\n"
+   ],
+   [
+      "Sometimes it is desirable to visualize whitespace characters. The C<cat -t> command can visualize tab characters, but the problem is that it breaks the visual format. We may want to see which parts are tabs and which parts are space characters while preserving the format. Extra whitespace characters at the end of a line can also be noticed by visualizing them.\n",
+      "空白文字を可視化することが望ましい場合もある。C<cat -t>コマンドはタブ文字を視覚化できるが、問題は視覚的な書式を壊してしまうことである。書式を保持したまま、どの部分がタブでどの部分が空白文字なのかを確認したい場合がある。行末の余分な空白文字も、視覚化することで気づくことができる。\n"
+   ],
+   [
+      "Using C<cat-v>, tab characters are visualized in such a way that the space on the display does not change.\n",
+      "C<cat-v>を使うと、タブ文字は表示上のスペースが変わらないように視覚化される。\n"
+   ],
+   [
+      "Control characters can be displayed in control format and Unicode symbol characters. By default, control characters other than newline and escape characters are displayed as corresponding Unicode symbols.\n",
+      "制御文字は、制御フォーマットとユニコード記号文字で表示できます。デフォルトでは、改行文字とエスケープ文字以外の制御文字は、対応するユニコード記号として表示されます。\n"
+   ],
+   [
+      "The second field is the default action. C<s> stands for symbol, C<m> for Unicode mark, and C<0> for no conversion.\n",
+      "2番目のフィールドはデフォルトの動作です。C<s>は記号、C<m>はUnicodeマーク、C<0>は無変換を表します。\n"
+   ],
+   [
+      "At this time, Unicode markings are available for the following characters\n",
+      "現時点では、Unicodeマークは以下の文字で利用可能です。\n"
+   ],
+   [
+      "Disables all character conversions and resets repeat characters.\n",
+      "すべての文字変換を無効にし、繰り返し文字をリセットします。\n"
+   ],
+   [
+      "Give the character type and flags as parameters to specify the character to be visualized and the conversion format.\n",
+      "可視化する文字と変換形式を指定するために、パラメータとして文字タイプとフラグを与えます。\n"
+   ],
+   [
+      "Option C<-c nl=1> can also be used to visualize newline characters. For newline characters only, after displaying the result of the conversion, the original character is output at the same time.\n",
+      "オプション C<-c nl=1> は、改行文字を可視化するのにも使える。改行文字の場合のみ、変換結果を表示した後、元の文字も同時に出力される。\n"
+   ],
+   [
+      "Use the names in the list above to specify by character type. If you want to convert escapes without converting tabs, use the following\n",
+      "文字の種類で指定するには、上のリストの名前を使う。タブを変換せずにエスケープを変換したい場合は、次のようにします。\n"
+   ],
+   [
+      "Multiple items can be specified at the same time. The following example sets C<tab> and C<bel> to 0 and C<esc> to C<s>.\n",
+      "複数の項目を同時に指定することができます。以下の例では、C<tab>とC<bel>を0に、C<esc>をC<s>に設定しています。\n"
+   ],
+   [
+      "If C<all> is specified for the name, the value applies to all character types. The following command sets all characters to C<s>, then sets C<nl>, C<nl>, C<np>, and C<sp> to C<m> and disables C<esc>. This is the default state.\n",
+      "名前に C<all> を指定すると、その値はすべての文字タイプに適用されます。次のコマンドは、すべての文字をC<s>に設定し、C<nl>、C<nl>、C<np>、C<sp>をC<m>に設定し、C<esc>を無効にします。これがデフォルトの状態である。\n"
+   ],
+   [
+      "All control characters can also be accessed by an option with their name. For example, option C<--nl> is defined for the newline character.\n",
+      "すべての制御文字は、その名前を持つオプションでアクセスすることもできる。例えば、オプション C<--nl> は改行文字のために定義されています。\n"
+   ],
+   [
+      "Used alone, it activates the visibility of the character.\n",
+      "単独で使用すると、この文字の可視性が有効になります。\n"
+   ],
+   [
+      "To disable, give the value 0.\n",
+      "無効にするには0を指定します。\n"
+   ],
+   [
+      "If a letter other than an alphabet or a number is given, it will be replaced by that letter.\n",
+      "アルファベットや数字以外の文字が指定された場合は、その文字に置き換えられます。\n"
+   ],
+   [
+      "If a string of two or more characters is given, it is interpreted as a Unicode character name.\n",
+      "2文字以上の文字列が指定された場合、Unicode文字名として解釈されます。\n"
+   ],
+   [
+      "If flag begins with C<+>, that character is added to the repeat list.\n",
+      "フラグがC<+>で始まる場合、その文字はリピートリストに追加される。\n"
+   ],
+   [
+      "So the above command will have the same meaning as if you had written as following.\n",
+      "つまり、上記のコマンドは、次のように書いたのと同じ意味になる。\n"
+   ],
+   [
+      "Specifies the character type for outputting the original character at the same time as the converted character. The default setting is C<nl,np>. The following will correctly output the original ANSI sequence with the escape character visualized.\n",
+      "変換後の文字と同時に元の文字を出力する文字種を指定します。デフォルトはC<nl,np>です。以下のようにすると、エスケープ文字が可視化された元のANSIシーケンスが正しく出力されます。\n"
+   ],
+   [
+      "If I<name> begins with C<+>, add that character in addition to the existing configuration.\n",
+      "I<name> が C<+> で始まる場合は、既存の設定に加えてその文字を追加します。\n"
+   ],
+   [
+      "If the converted string is different from the original string, the original string is output before the converted string is output. If specified twice, the original string is always printed.\n",
+      "変換後の文字列が元の文字列と異なる場合、変換後の文字列が出力される前に元の文字列が出力される。2回指定すると、常に元の文字列が出力されます。\n"
+   ],
+   [
+      "You can use this output with L<App::cdif>'s C<--line-by-line> (C<--lxl>) option.\n",
+      "この出力は、L<App::cdif>のC<--line-by-line> (C<--lxl>)オプションで使うことができます。\n"
+   ],
+   [
+      "Tab characters are expanded by default. To explicitly disable it, use the B<-T> or B<--no-expand> option.\n",
+      "タブ文字はデフォルトで展開されます。明示的に無効にするには、B<-T>またはB<--no-expand>オプションを使用する。\n"
+   ],
+   [
+      "If an optional number is given for the B<-t> option, it is treated as a tab width. The following two commands are equivalent:\n",
+      "B<-t>オプションに任意の数字が与えられた場合、それはタブ幅として扱われる。次の2つのコマンドは等価である：\n"
+   ],
+   [
+      "By default, the style C<needle> is applied, which can be changed with C<--tabstyle>. If the C<--tabstyle> option is specified with no arguments, a list of available styles is displayed.\n",
+      "デフォルトではC<needle>スタイルが適用され、C<--tabstyle>で変更できる。C<--tabstyle> オプションが引数なしで指定された場合、利用可能なスタイルのリストが表示される。\n"
+   ],
+   [
+      "You can disable tab expansion by default by putting the following setting in your C<~/.cat-vrc> file.\n",
+      "C<~/.cat-vrc>ファイルに以下の設定を記述することで、デフォルトでタブ展開を無効にすることができる。\n"
+   ],
+   [
+      "In such cases, tab expansion can be temporarily enabled by the C<-t> option.\n",
+      "その場合、C<-t>オプションで一時的にタブ展開を有効にすることができる。\n"
+   ],
+   [
+      "Set tab width.\n",
+      "タブ幅を設定する。\n"
+   ],
+   [
+      "Set tab head and following space characters. If the option value is longer than single character, it is evaluated as unicode name.\n",
+      "タブヘッドとそれに続くスペース文字を設定する。オプ シ ョ ン値が 1 文字 よ り 長い場合は、 unicode 名 と し て評価 さ れます。\n"
+   ],
+   [
+      "Set the style how tab is expanded. Select C<symbol> or C<shade> for example. If two style names are combined, like C<squat-arrow,middle-dot>, use C<squat-arrow> for tabhead and C<middle-dot> for tabspace.\n",
+      "タブの展開方法を設定します。例えば、C<記号>またはC<影>を選択します。C<squat-arrow,middle-dot>のように2つのスタイル名を組み合わせた場合、タブヘッドにはC<squat-arrow>を、タブスペースにはC<middle-dot>を使用します。\n"
+   ],
+   [
+      "Show available style list if called without parameter. Styles are defined in L<Text::ANSI::Fold> library.\n",
+      "パラメータなしで呼ばれた場合、利用可能なスタイルリストを表示する。スタイルは L<Text::ANSI::Fold> ライブラリで定義されています。\n"
+   ],
+   [
+      "From CPAN archive:\n",
+      "CPANアーカイブから：\n"
+   ],
+   [
+      "From GIT repository:\n",
+      "GITリポジトリから\n"
+   ],
+   [
+      "Git repository.\n",
+      "Gitリポジトリ。\n"
+   ],
+   [
+      "The predecessor of the C<cat-v> command was originally created as the filter module of the L<App::optex> command.\n",
+      "C<cat-v>コマンドの前身は、もともとL<App::optex>コマンドのフィルタモジュールとして作られたものです。\n"
+   ]
+]

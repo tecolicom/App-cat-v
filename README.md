@@ -32,7 +32,7 @@ cat-v \[ options \] args ...
 
 # VERSION
 
-Version 1.01
+Version 1.02
 
 # DESCRIPTION
 
@@ -290,7 +290,7 @@ Kazumasa Utashiro
 
 # LICENSE
 
-Copyright © 2024 Kazumasa Utashiro.
+Copyright © 2024-2025 Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

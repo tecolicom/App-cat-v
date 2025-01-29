@@ -1,6 +1,6 @@
 package App::cat::v;
 
-our $VERSION = "1.01";
+our $VERSION = "1.02";
 
 use 5.024;
 use warnings;
@@ -297,7 +297,7 @@ Kazumasa Utashiro
 
 =head1 LICENSE
 
-Copyright ©︎ 2024- Kazumasa Utashiro.
+Copyright ©︎ 2024-2025 Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
