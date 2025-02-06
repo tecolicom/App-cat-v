@@ -232,7 +232,9 @@ sub setup {
 	my $char = $control{$name};
 	my $code = $char->code;
 	if ($flag eq 'c') {
-	    $convert->{$code} = '^' . pack('c',ord($code)+64);
+	    if ($code =~ /[\x00-\x1f]/) {
+		$convert->{$code} = '^' . pack('c',ord($code)+64);
+	    }
 	}
 	elsif ($flag =~ /^([a-z\d])$/i) {
 	    $convert->{$code} = $char->visible($flag);
