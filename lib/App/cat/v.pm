@@ -192,7 +192,7 @@ use Getopt::EX::Hashed; {
 
     has '+visible' => sub {
 	my $param = $_[1];
-	if ($param !~ /=/) {
+	if ($param !~ /^\w+=/) {
 	    $param = "all=$param";
 	}
 	$param =~ s{ \ball\b }{ join('=', keys $_->flags->%*) }xe;

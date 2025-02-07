@@ -165,7 +165,7 @@ characters
     newlines in escaped form, which is compatible with the Perl's string
     literal.
 
-        cat-v -Tnce -cnl=0
+        cat-v -Tn -ce,nl=0
 
     The above command is identical to this.
 
