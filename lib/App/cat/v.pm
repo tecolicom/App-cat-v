@@ -81,6 +81,21 @@ Visibility {
 };
 bless $_, 'Visibility' for values %control;
 
+# setup 'e' map
+for my $v (values %control) {
+    my %map = (
+	"\t" => '\t',
+	"\n" => '\n',
+	"\r" => '\r',
+	"\f" => '\f',
+	"\b" => '\b',
+	"\a" => '\a',
+	"\e" => '\e',
+    );
+    my $code = $v->code;
+    $v->cmap->{e} = $map{$code} // sprintf "\\x%02x", ord($code);
+}
+
 my %code = pairmap { $a => $b->code } %control;
 
 our $DEFAULT_TABSTYLE = 'needle';
@@ -177,6 +192,9 @@ use Getopt::EX::Hashed; {
 
     has '+visible' => sub {
 	my $param = $_[1];
+	if ($param !~ /=/) {
+	    $param = "all=$param";
+	}
 	$param =~ s{ \ball\b }{ join('=', keys $_->flags->%*) }xe;
 	push @{$_->visible}, $param;
     };

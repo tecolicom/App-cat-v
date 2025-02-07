@@ -133,6 +133,7 @@ characters
     character to be visualized and the conversion format.
 
         c  control style
+        e  escape style
         s  symbol style
         m  Unicode mark (if exists)
         0  do not convert
@@ -158,6 +159,17 @@ characters
     This is the default state.
 
         cat-v -c all=s,nul=nl=np=sp=m,esc=0
+
+    If none of the name labels are specified, it is assumed that `all` is
+    given.  The following command prints all control characters except
+    newlines in escaped form, which is compatible with the Perl's string
+    literal.
+
+        cat-v -Tnce -cnl=0
+
+    The above command is identical to this.
+
+        cat-v --no-expand --reset --visible all=e,nl=0
 
 - **--**_name_\[=_replacement_\]
 
