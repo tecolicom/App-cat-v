@@ -128,6 +128,7 @@ use Getopt::EX::Hashed; {
     has tabstyle   => ' ts :s  ' , default => $DEFAULT_TABSTYLE ;
     has help       => ' h      ' ;
     has version    => ' v      ' ;
+    has escape_backslash => 'E!' ;
 
     # -n
     has '+reset' => sub {
@@ -261,6 +262,7 @@ sub setup {
 	    $convert->{$char->code} = $flag;
 	}
     }
+    $convert->{"\\"} = "\\\\" if $app->escape_backslash;
     return $app;
 }
 
@@ -271,7 +273,7 @@ sub doit {
     my $repeat_re = do {
 	if (my @c = map { $code{$_} } $app->repeat =~ /\w+/g) {
 	    local $" = "";
-	    qr/[@c]/;
+	    qr/[\Q@c\E]/;
 	} else {
 	    qr/(?!)/;
 	}
@@ -279,7 +281,7 @@ sub doit {
     while (<>) {
 	my $orig = $_;
 	$_ = ansi_expand($_) if $app->expand;
-	s{(?=(${repeat_re}?))([$replace]|(?#bug?)(?!))}{$convert->{$2}$1}g
+	s{(?=(${repeat_re}?))([\Q$replace\E]|(?#bug?)(?!))}{$convert->{$2}$1}g
 	    if $replace ne '';
 	if ($app->original > 1 or
 	    ($app->original and $_ ne $orig)) {

@@ -14,6 +14,7 @@ cat-v \[ options \] args ...
        -o   --original      Print original line as is
        -t   --expand[=#]    Expand tabs
        -T   --no-expand     Do not expand tabs
+       -E                   Escape backslash character
       --ts  --tabstyle=#    Set tab style
             --tabstop=#     Set tab width
             --tabhead=#     Set tab-head character
@@ -272,6 +273,19 @@ characters
 
     Show available style list if called without parameter.  Styles are
     defined in [Text::ANSI::Fold](https://metacpan.org/pod/Text%3A%3AANSI%3A%3AFold) library.
+
+- **-E**, **--escape-backslash**
+
+    Convert backslash character to the escaped form `\\`.
+
+    Although backslash is not a control character, this way the result of
+    converting other control characters to escape expressions can be fully
+    interpreted as Perl's string literals.
+
+    When combined with the [App::ansiecho](https://metacpan.org/pod/App%3A%3Aansiecho) command, the following command
+    reproduces the complete contents of the original file.
+
+        ansiecho -n "$(cat-v -ETnce FILE)"
 
 # INSTALL
 
