@@ -40,8 +40,8 @@
       "현재 다음 문자에 대해 유니코드 표시를 사용할 수 있습니다.\n"
    ],
    [
-      "Disables all character conversions and resets repeat characters.\n",
-      "모든 문자 변환을 비활성화하고 반복 문자를 재설정합니다.\n"
+      "Disables all character conversions and tab expansion, and resets repeat characters. Therefore, the C<cat-v -n> effectively does nothing, just like the C<cat> command.\n",
+      "모든 문자 변환과 탭 확장을 비활성화하고 반복 문자를 초기화합니다. 따라서 C<cat-v -n>은 C<cat> 명령과 마찬가지로 사실상 아무 작업도 수행하지 않습니다.\n"
    ],
    [
       "Give the character type and flags as parameters to specify the character to be visualized and the conversion format.\n",
@@ -62,6 +62,14 @@
    [
       "If C<all> is specified for the name, the value applies to all character types. The following command sets all characters to C<s>, then sets C<nl>, C<nl>, C<np>, and C<sp> to C<m> and disables C<esc>. This is the default state.\n",
       "이름에 C<all>을 지정하면 이 값은 모든 문자 유형에 적용됩니다. 다음 명령은 모든 문자를 C<s>로 설정한 다음 C<nl>, C<nl>, C<np> 및 C<sp>를 C<m>으로 설정하고 C<esc>를 비활성화합니다. 이것이 기본 상태입니다.\n"
+   ],
+   [
+      "If none of the name labels are specified, it is assumed that C<all> is given. The following command prints all control characters except newlines in escaped form, which is compatible with the Perl's string literal.\n",
+      "이름 레이블을 지정하지 않으면 C<all>이 주어진 것으로 간주합니다. 다음 명령은 개행 문자를 제외한 모든 제어 문자를 이스케이프 형식으로 출력하며, 이는 Perl의 문자열 리터럴과 호환됩니다.\n"
+   ],
+   [
+      "The above command is identical to this.\n",
+      "위의 명령은 이와 동일합니다.\n"
    ],
    [
       "All control characters can also be accessed by an option with their name. For example, option C<--nl> is defined for the newline character.\n",
@@ -142,6 +150,18 @@
    [
       "Show available style list if called without parameter. Styles are defined in L<Text::ANSI::Fold> library.\n",
       "매개변수 없이 호출하면 사용 가능한 스타일 목록을 표시합니다. 스타일은 L<Text::ANSI::Fold> 라이브러리에 정의되어 있습니다.\n"
+   ],
+   [
+      "Convert backslash character to the escaped form C<\\\\>.\n",
+      "백슬래시 문자를 이스케이프 형식 C<\\\\>로 변환합니다.\n"
+   ],
+   [
+      "Although backslash is not a control character, this way the result of converting other control characters to escape expressions can be fully interpreted as string literal of various programming language.\n",
+      "백슬래시는 제어 문자는 아니지만 다른 제어 문자를 이스케이프 표현식으로 변환한 결과는 다양한 프로그래밍 언어의 문자열 리터럴로 완벽하게 해석할 수 있습니다.\n"
+   ],
+   [
+      "The following command reproduces the complete contents of the original file.\n",
+      "다음 명령은 원본 파일의 전체 내용을 재현합니다.\n"
    ],
    [
       "From CPAN archive:\n",

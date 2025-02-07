@@ -40,8 +40,8 @@
       "この時点で、以下の文字に対してUnicodeマーキングが利用可能です\n"
    ],
    [
-      "Disables all character conversions and resets repeat characters.\n",
-      "全ての文字変換を無効にし、繰り返し文字をリセットします。\n"
+      "Disables all character conversions and tab expansion, and resets repeat characters. Therefore, the C<cat-v -n> effectively does nothing, just like the C<cat> command.\n",
+      "文字変換やタブ展開を無効にし、繰り返し文字をリセットします。したがって、C<cat-v -n> は何も行わないのと同じです、C<cat> コマンドのように。\n"
    ],
    [
       "Give the character type and flags as parameters to specify the character to be visualized and the conversion format.\n",
@@ -62,6 +62,14 @@
    [
       "If C<all> is specified for the name, the value applies to all character types. The following command sets all characters to C<s>, then sets C<nl>, C<nl>, C<np>, and C<sp> to C<m> and disables C<esc>. This is the default state.\n",
       "名前に C<all> が指定された場合、その値は全ての文字タイプに適用されます。以下のコマンドは全ての文字を C<s> に設定し、その後 C<nl>、C<nl>、C<np>、C<sp> を C<m> に設定し、C<esc> を無効にします。これがデフォルトの状態です。\n"
+   ],
+   [
+      "If none of the name labels are specified, it is assumed that C<all> is given. The following command prints all control characters except newlines in escaped form, which is compatible with the Perl's string literal.\n",
+      "名前ラベルが指定されていない場合、C<all> が指定されたと見なされます。次のコマンドは、改行を除くすべての制御文字をエスケープ形式で印刷します。これは Perl の文字列リテラルと互換性があります。\n"
+   ],
+   [
+      "The above command is identical to this.\n",
+      "上記のコマンドはこれと同一です。\n"
    ],
    [
       "All control characters can also be accessed by an option with their name. For example, option C<--nl> is defined for the newline character.\n",
@@ -142,6 +150,18 @@
    [
       "Show available style list if called without parameter. Styles are defined in L<Text::ANSI::Fold> library.\n",
       "パラメータなしで呼び出された場合、利用可能なスタイルリストを表示します。スタイルはL<Text::ANSI::Fold>ライブラリで定義されています。\n"
+   ],
+   [
+      "Convert backslash character to the escaped form C<\\\\>.\n",
+      "バックスラッシュ文字をエスケープ形式 C<\\\\> に変換します。\n"
+   ],
+   [
+      "Although backslash is not a control character, this way the result of converting other control characters to escape expressions can be fully interpreted as string literal of various programming language.\n",
+      "バックスラッシュは制御文字ではありませんが、この方法では他の制御文字をエスケープ表現に変換する結果が、さまざまなプログラミング言語の文字列リテラルとして完全に解釈されます。\n"
+   ],
+   [
+      "The following command reproduces the complete contents of the original file.\n",
+      "次のコマンドは元のファイルの完全な内容を再現します。\n"
    ],
    [
       "From CPAN archive:\n",
