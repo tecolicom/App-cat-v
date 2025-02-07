@@ -126,7 +126,9 @@ characters
 
 - **-n**, **--reset**
 
-    Disables all character conversions and resets repeat characters.
+    Disables all character conversions and tab expansion, and resets
+    repeat characters.  Therefore, the `cat-v -n` effectively does
+    nothing, just like the `cat` command.
 
 - **-c**, **--visible** _name_=_flag_,...
 
@@ -166,7 +168,7 @@ characters
     newlines in escaped form, which is compatible with the Perl's string
     literal.
 
-        cat-v -Tn -ce,nl=0
+        cat-v -n -ce,nl=0
 
     The above command is identical to this.
 
@@ -280,12 +282,12 @@ characters
 
     Although backslash is not a control character, this way the result of
     converting other control characters to escape expressions can be fully
-    interpreted as Perl's string literals.
+    interpreted as string literal of various programming language.
 
-    When combined with the [App::ansiecho](https://metacpan.org/pod/App%3A%3Aansiecho) command, the following command
-    reproduces the complete contents of the original file.
+    The following command reproduces the complete contents of the original
+    file.
 
-        ansiecho -n "$(cat-v -ETnce FILE)"
+        echo -ne "$(cat-v -Ence FILE)"
 
 # INSTALL
 

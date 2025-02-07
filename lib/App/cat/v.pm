@@ -136,6 +136,7 @@ use Getopt::EX::Hashed; {
 	    $_->flags->{$name} = '0';
 	}
 	$_->repeat = '';
+	$_->expand = 0;
     };
 
     has '+expand' => sub {
