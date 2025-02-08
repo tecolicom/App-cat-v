@@ -313,6 +313,14 @@ From GIT repository:
     The predecessor of the `cat-v` command was originally created as the 
     filter module of the [App::optex](https://metacpan.org/pod/App%3A%3Aoptex) command.
 
+- [https://harmful.cat-v.org/cat-v/](https://harmful.cat-v.org/cat-v/)
+
+    UNIX Style, or cat -v Considered Harmful
+
+- [https://harmful.cat-v.org/cat-v/unix\_prog\_design.pdf](https://harmful.cat-v.org/cat-v/unix_prog_design.pdf)
+
+    Program design in the UNIX environment
+
 # AUTHOR
 
 Kazumasa Utashiro

@@ -340,6 +340,14 @@ Git repository.
 The predecessor of the C<cat-v> command was originally created as the 
 filter module of the L<App::optex> command.
 
+=item L<https://harmful.cat-v.org/cat-v/>
+
+UNIX Style, or cat -v Considered Harmful
+
+=item L<https://harmful.cat-v.org/cat-v/unix_prog_design.pdf>
+
+Program design in the UNIX environment
+
 =back
 
 =head1 AUTHOR
