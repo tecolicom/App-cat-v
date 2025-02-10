@@ -1,4 +1,4 @@
-package catv;
+package Command;
 
 use parent "App::cdif::Command";
 
@@ -13,7 +13,7 @@ $ENV{PERL5LIB} = join ':', @INC;
 sub new {
     my $class = shift;
     my $obj = $class->SUPER::new();
-    $obj->command([ $^X, qw(-Ilib script/cat-v), @_ ]);
+    $obj->command([ $^X, qw(-Ilib), @_ ]);
     $obj;
 }
 

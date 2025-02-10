@@ -6,7 +6,7 @@ use open IO => ':utf8', ':std';
 use Data::Dumper;
 
 use lib './t';
-use catv;
+use Command;
 
 use Text::ParseWords qw(shellwords);
 use Getopt::Long 'Configure';
@@ -42,8 +42,12 @@ if (defined(my $n = $opt{number})) {
 
 for (@command) {
     my @command = shellwords $_;
-    shift @command if $command[0] eq 'cat-v';
-    my $result = catv->new(@command)->exec();
+    if (-e (my $script = "script/$command[0]")) {
+	$command[0] = $script;
+    } else {
+	unshift @command, '-S';
+    }
+    my $result = Command->new(@command)->exec();
     if ($opt{example}) {
 	printf "\$ %s\n", $_;
 	print $result;
