@@ -276,16 +276,16 @@ sub doit {
 	    local $" = "";
 	    qr/[\Q@c\E]/;
 	} else {
-	    qr/(?!)/;
+	    qr/(*F)/;
 	}
     };
     while (<>) {
 	my $orig = $_;
 	$_ = ansi_expand($_) if $app->expand;
-	s{(?=(${repeat_re}?))([\Q$replace\E]|(?#bug?)(?!))}{$convert->{$2}$1}g
+	# (*F) is necessary possibly due to the bug
+	s{ (?=(${repeat_re}?)) ([\Q$replace\E]|(*F)) }{$convert->{$2}$1}xg
 	    if $replace ne '';
-	if ($app->original > 1 or
-	    ($app->original and $_ ne $orig)) {
+	if ($app->original > 1 or ($app->original and $_ ne $orig)) {
 	    print $orig;
 	}
 	print;
