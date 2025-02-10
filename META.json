@@ -59,6 +59,10 @@
       },
       "test" : {
          "requires" : {
+            "App::sdif" : "0",
+            "Data::Section::Simple" : "0",
+            "File::Slurper" : "0",
+            "File::Spec" : "0",
             "Test::More" : "0.98"
          }
       }
