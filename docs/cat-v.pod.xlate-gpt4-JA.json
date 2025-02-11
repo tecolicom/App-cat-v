@@ -44,6 +44,10 @@
       "文字変換やタブ展開を無効にし、繰り返し文字をリセットします。したがって、C<cat-v -n> は何も行わないのと同じです、C<cat> コマンドのように。\n"
    ],
    [
+      "Once the default behavior is reset, only options specified after it will have any effect. For example, the following command will only visualize tab characters.\n",
+      "デフォルトの動作がリセットされると、それ以降に指定されたオプションのみが効果を持ちます。例えば、次のコマンドはタブ文字のみを視覚化します。\n"
+   ],
+   [
       "Give the character type and flags as parameters to specify the character to be visualized and the conversion format.\n",
       "可視化される文字と変換フォーマットを指定するために、文字タイプとフラグをパラメータとして与えます。\n"
    ],
@@ -178,5 +182,13 @@
    [
       "The predecessor of the C<cat-v> command was originally created as the filter module of the L<App::optex> command.\n",
       "C<cat-v>コマンドの前身は、もともとL<App::optex>コマンドのフィルターモジュールとして作成されました。\n"
+   ],
+   [
+      "UNIX Style, or cat -v Considered Harmful\n",
+      "UNIXスタイル、または cat -v は有害と考えられています\n"
+   ],
+   [
+      "Program design in the UNIX environment\n",
+      "UNIX環境でのプログラム設計\n"
    ]
 ]

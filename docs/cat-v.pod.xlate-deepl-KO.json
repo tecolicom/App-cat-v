@@ -44,6 +44,10 @@
       "모든 문자 변환과 탭 확장을 비활성화하고 반복 문자를 초기화합니다. 따라서 C<cat-v -n>은 C<cat> 명령과 마찬가지로 사실상 아무 작업도 수행하지 않습니다.\n"
    ],
    [
+      "Once the default behavior is reset, only options specified after it will have any effect. For example, the following command will only visualize tab characters.\n",
+      "기본 동작이 재설정되면 그 이후에 지정된 옵션만 적용됩니다. 예를 들어 다음 명령은 탭 문자만 시각화합니다.\n"
+   ],
+   [
       "Give the character type and flags as parameters to specify the character to be visualized and the conversion format.\n",
       "문자 유형과 플래그를 매개변수로 지정하여 시각화할 문자와 변환 형식을 지정합니다.\n"
    ],
@@ -178,5 +182,13 @@
    [
       "The predecessor of the C<cat-v> command was originally created as the filter module of the L<App::optex> command.\n",
       "C<cat-v> 명령의 이전 버전은 원래 L<App::optex> 명령의 필터 모듈로 만들어졌습니다.\n"
+   ],
+   [
+      "UNIX Style, or cat -v Considered Harmful\n",
+      "UNIX 스타일 또는 cat -v 유해한 것으로 간주됨\n"
+   ],
+   [
+      "Program design in the UNIX environment\n",
+      "UNIX 환경에서의 프로그램 디자인\n"
    ]
 ]

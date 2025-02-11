@@ -44,6 +44,10 @@
       "禁用所有字符转换和制表符扩展，并重置重复字符。因此，C<cat-v -n>实际上什么也不做，就像 C<cat> 命令一样。\n"
    ],
    [
+      "Once the default behavior is reset, only options specified after it will have any effect. For example, the following command will only visualize tab characters.\n",
+      "一旦重置了默认行为，只有在其后指定的选项才会有效果。例如，以下命令将只显示制表符。\n"
+   ],
+   [
       "Give the character type and flags as parameters to specify the character to be visualized and the conversion format.\n",
       "将字符类型和标记作为参数，以指定要可视化的字符和转换格式。\n"
    ],
@@ -178,5 +182,13 @@
    [
       "The predecessor of the C<cat-v> command was originally created as the filter module of the L<App::optex> command.\n",
       "C<cat-v> 命令的前身最初是作为 L<App::optex> 命令的过滤器模块创建的。\n"
+   ],
+   [
+      "UNIX Style, or cat -v Considered Harmful\n",
+      "UNIX 风格，或 cat -v 被认为是有害的\n"
+   ],
+   [
+      "Program design in the UNIX environment\n",
+      "UNIX 环境下的程序设计\n"
    ]
 ]
