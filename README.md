@@ -131,6 +131,12 @@ characters
     repeat characters.  Therefore, the `cat-v -n` effectively does
     nothing, just like the `cat` command.
 
+    Once the default behavior is reset, only options specified after it
+    will have any effect.  For example, the following command will only
+    visualize tab characters.
+
+        cat-v -nt
+
 - **-c**, **--visible** _name_=_flag_,...
 
     Give the character type and flags as parameters to specify the
