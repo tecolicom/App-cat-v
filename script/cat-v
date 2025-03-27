@@ -127,7 +127,7 @@ for Unicode mark, and C<0> for no conversion.
     us    s  \037  \x{241F}  ␟  SYMBOL FOR UNIT SEPARATOR
     sp    m  \040  \x{2420}  ␠  SYMBOL FOR SPACE
     del   s  \177  \x{2421}  ␡  SYMBOL FOR DELETE
-    nbsp  s  \240  \x{2423}  ␣  OPEN BOX
+    nbsp  s  \240  \x{2423}  ⍽  SHOULDERED OPEN BOX
 
 At this time, Unicode markings are available for the following
 characters

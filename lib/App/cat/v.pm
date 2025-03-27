@@ -64,7 +64,7 @@ my %control = (
 			     m => "\x{00B7}", } ], # · MIDDLE DOT
     del  => [ 'm', "\x7f", { s => "\x{2421}",    , # ␡ SYMBOL FOR DELETE
 			     m => "\x{232B}", } ], # ⌫ ERASE TO THE LEFT
-    nbsp => [ 's', "\xa0", { s => "\x{2423}", } ], # ␣ OPEN BOX
+    nbsp => [ 's', "\xa0", { s => "\x{237D}", } ], # ⍽ SHOULDERED OPEN BOX
 );
 
 package #
