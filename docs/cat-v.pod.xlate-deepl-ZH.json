@@ -156,6 +156,10 @@
       "如果调用时不带参数，则显示可用样式表。样式在 L<Text::ANSI::Fold> 库中定义。\n"
    ],
    [
+      "Replaced characters are displayed in the color specified by the I<color>. This option is not suitable for output containing ANSI color sequences.\n",
+      "被替换的字符将以 I<color> 指定的颜色显示。该选项不适用于包含 ANSI 颜色序列的输出。\n"
+   ],
+   [
       "Convert backslash character to the escaped form C<\\\\>.\n",
       "将反斜线字符转换为转义形式 C<//>。\n"
    ],

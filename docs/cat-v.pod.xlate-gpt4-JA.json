@@ -156,6 +156,10 @@
       "パラメータなしで呼び出された場合、利用可能なスタイルリストを表示します。スタイルはL<Text::ANSI::Fold>ライブラリで定義されています。\n"
    ],
    [
+      "Replaced characters are displayed in the color specified by the I<color>. This option is not suitable for output containing ANSI color sequences.\n",
+      "置換された文字は、I<color>で指定された色で表示されます。このオプションは、ANSIカラーシーケンスを含む出力には適していません。\n"
+   ],
+   [
       "Convert backslash character to the escaped form C<\\\\>.\n",
       "バックスラッシュ文字をエスケープ形式 C<\\\\> に変換します。\n"
    ],

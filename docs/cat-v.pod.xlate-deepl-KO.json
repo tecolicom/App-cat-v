@@ -156,6 +156,10 @@
       "매개변수 없이 호출하면 사용 가능한 스타일 목록을 표시합니다. 스타일은 L<Text::ANSI::Fold> 라이브러리에 정의되어 있습니다.\n"
    ],
    [
+      "Replaced characters are displayed in the color specified by the I<color>. This option is not suitable for output containing ANSI color sequences.\n",
+      "대체된 문자는 I<색상>에 지정된 색상으로 표시됩니다. 이 옵션은 ANSI 색상 시퀀스가 포함된 출력에는 적합하지 않습니다.\n"
+   ],
+   [
       "Convert backslash character to the escaped form C<\\\\>.\n",
       "백슬래시 문자를 이스케이프 형식 C<\\\\>로 변환합니다.\n"
    ],
