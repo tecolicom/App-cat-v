@@ -332,6 +332,13 @@ file.
 
     echo -ne "$(cat-v -Ence FILE)"
 
+This does not work if the file contains C<nbsp> or C<fwsp>, because
+C<echo> produces a raw byte rather than UTF-8 character for C<\xa0>,
+and does not understand the C<\x{3000}> form.  In that case, use the
+L<ansiecho> command, which interprets them as Perl does.
+
+    ansiecho -n "$(cat-v -Ence FILE)"
+
 =back
 
 =head1 INSTALL
@@ -358,6 +365,11 @@ Git repository.
 
 The predecessor of the C<cat-v> command was originally created as the 
 filter module of the L<App::optex> command.
+
+=item L<ansiecho>
+
+Echo command which interprets escape sequences in the same way as
+Perl's string literal.
 
 =item L<https://harmful.cat-v.org/cat-v/>
 

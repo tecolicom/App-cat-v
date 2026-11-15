@@ -309,6 +309,13 @@ characters
 
         echo -ne "$(cat-v -Ence FILE)"
 
+    This does not work if the file contains `nbsp` or `fwsp`, because
+    `echo` produces a raw byte rather than UTF-8 character for `\xa0`,
+    and does not understand the `\x{3000}` form.  In that case, use the
+    [ansiecho](https://metacpan.org/pod/ansiecho) command, which interprets them as Perl does.
+
+        ansiecho -n "$(cat-v -Ence FILE)"
+
 # INSTALL
 
 ## CPANMINUS
@@ -331,6 +338,11 @@ From GIT repository:
 
     The predecessor of the `cat-v` command was originally created as the 
     filter module of the [App::optex](https://metacpan.org/pod/App%3A%3Aoptex) command.
+
+- [ansiecho](https://metacpan.org/pod/ansiecho)
+
+    Echo command which interprets escape sequences in the same way as
+    Perl's string literal.
 
 - [https://harmful.cat-v.org/cat-v/](https://harmful.cat-v.org/cat-v/)
 
