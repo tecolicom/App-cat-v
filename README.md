@@ -110,8 +110,8 @@ for Unicode mark, and `0` for no conversion.
     rs    s  \036  \x{241E}  ␞  SYMBOL FOR RECORD SEPARATOR
     us    s  \037  \x{241F}  ␟  SYMBOL FOR UNIT SEPARATOR
     sp    m  \040  \x{2420}  ␠  SYMBOL FOR SPACE
-    del   s  \177  \x{2421}  ␡  SYMBOL FOR DELETE
-    nbsp  s  \240  \x{2423}  ⍽  SHOULDERED OPEN BOX
+    del   m  \177  \x{2421}  ␡  SYMBOL FOR DELETE
+    nbsp  s  \240  \x{237D}  ⍽  SHOULDERED OPEN BOX
     fwsp  s  U+3000  \x{303C}  〼  MASU MARK
 
 The `fwsp` is the full-width IDEOGRAPHIC SPACE (U+3000), which
@@ -172,10 +172,10 @@ characters
 
     If `all` is specified for the name, the value applies to all
     character types.  The following command sets all characters to `s`,
-    then sets `nl`, `nl`, `np`, and `sp` to `m` and disables `esc`.
+    then sets `nul`, `nl`, `np`, `sp`, and `del` to `m` and disables `esc`.
     This is the default state.
 
-        cat-v -c all=s,nul=nl=np=sp=m,esc=0
+        cat-v -c all=s,nul=nl=np=sp=del=m,esc=0
 
     If none of the name labels are specified, it is assumed that `all` is
     given.  The following command prints all control characters except

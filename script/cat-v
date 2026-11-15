@@ -127,8 +127,8 @@ for Unicode mark, and C<0> for no conversion.
     rs    s  \036  \x{241E}  ␞  SYMBOL FOR RECORD SEPARATOR
     us    s  \037  \x{241F}  ␟  SYMBOL FOR UNIT SEPARATOR
     sp    m  \040  \x{2420}  ␠  SYMBOL FOR SPACE
-    del   s  \177  \x{2421}  ␡  SYMBOL FOR DELETE
-    nbsp  s  \240  \x{2423}  ⍽  SHOULDERED OPEN BOX
+    del   m  \177  \x{2421}  ␡  SYMBOL FOR DELETE
+    nbsp  s  \240  \x{237D}  ⍽  SHOULDERED OPEN BOX
     fwsp  s  U+3000  \x{303C}  〼  MASU MARK
 
 The C<fwsp> is the full-width IDEOGRAPHIC SPACE (U+3000), which
@@ -191,10 +191,10 @@ example sets C<tab> and C<bel> to 0 and C<esc> to C<s>.
 
 If C<all> is specified for the name, the value applies to all
 character types.  The following command sets all characters to C<s>,
-then sets C<nl>, C<nl>, C<np>, and C<sp> to C<m> and disables C<esc>.
+then sets C<nul>, C<nl>, C<np>, C<sp>, and C<del> to C<m> and disables C<esc>.
 This is the default state.
 
-    cat-v -c all=s,nul=nl=np=sp=m,esc=0
+    cat-v -c all=s,nul=nl=np=sp=del=m,esc=0
 
 If none of the name labels are specified, it is assumed that C<all> is
 given.  The following command prints all control characters except
