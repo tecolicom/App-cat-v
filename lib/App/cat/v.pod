@@ -119,6 +119,12 @@ for Unicode mark, and C<0> for no conversion.
     sp    m  \040  \x{2420}  ␠  SYMBOL FOR SPACE
     del   s  \177  \x{2421}  ␡  SYMBOL FOR DELETE
     nbsp  s  \240  \x{2423}  ⍽  SHOULDERED OPEN BOX
+    fwsp  s  U+3000  \x{303C}  〼  MASU MARK
+
+The C<fwsp> is the full-width IDEOGRAPHIC SPACE (U+3000), which
+occupies two columns on the display.  The default symbol is also
+two columns wide, so the layout is preserved.  If you replace it by
+other character, choose one with the same width.
 
 At this time, Unicode markings are available for the following
 characters
