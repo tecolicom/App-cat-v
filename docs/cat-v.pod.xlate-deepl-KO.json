@@ -36,6 +36,10 @@
       "두 번째 필드는 기본 동작입니다. C<s>는 기호, C<m>은 유니코드 마크, C<0>은 변환하지 않음을 나타냅니다.\n"
    ],
    [
+      "The C<fwsp> is the full-width IDEOGRAPHIC SPACE (U+3000), which occupies two columns on the display. The default symbol is also two columns wide, so the layout is preserved. If you replace it by other character, choose one with the same width.\n",
+      "C<fwsp>는 전체 너비 표의 문자 공백(U+3000)으로, 화면에서 두 열을 차지합니다. 기본 기호도 너비가 두 열이므로 레이아웃이 유지됩니다. 이를 다른 문자로 대체할 경우, 너비가 동일한 문자를 선택하십시오.\n"
+   ],
+   [
       "At this time, Unicode markings are available for the following characters\n",
       "현재 다음 문자에 대해 유니코드 표시를 사용할 수 있습니다.\n"
    ],
@@ -64,8 +68,8 @@
       "여러 항목을 동시에 지정할 수 있습니다. 다음 예에서는 C<tab> 및 C<bel>을 0으로, C<esc>를 C<s>로 설정합니다.\n"
    ],
    [
-      "If C<all> is specified for the name, the value applies to all character types. The following command sets all characters to C<s>, then sets C<nl>, C<nl>, C<np>, and C<sp> to C<m> and disables C<esc>. This is the default state.\n",
-      "이름에 C<all>을 지정하면 이 값은 모든 문자 유형에 적용됩니다. 다음 명령은 모든 문자를 C<s>로 설정한 다음 C<nl>, C<nl>, C<np> 및 C<sp>를 C<m>으로 설정하고 C<esc>를 비활성화합니다. 이것이 기본 상태입니다.\n"
+      "If C<all> is specified for the name, the value applies to all character types. The following command sets all characters to C<s>, then sets C<nul>, C<nl>, C<np>, C<sp>, and C<del> to C<m> and disables C<esc>. This is the default state.\n",
+      "이름으로 C<all>이 지정된 경우, 해당 값은 모든 문자 유형에 적용됩니다. 다음 명령은 모든 문자를 C<s>로 설정한 다음, C<nul>, C<nl>, C<np>, C<sp> 및 C<del>를 C<m>으로 설정하고 C<esc>를 비활성화합니다. 이것이 기본 상태입니다.\n"
    ],
    [
       "If none of the name labels are specified, it is assumed that C<all> is given. The following command prints all control characters except newlines in escaped form, which is compatible with the Perl's string literal.\n",
@@ -172,6 +176,10 @@
       "다음 명령은 원본 파일의 전체 내용을 재현합니다.\n"
    ],
    [
+      "This does not work if the file contains C<nbsp> or C<fwsp>, because C<echo> produces a raw byte rather than UTF-8 character for C<\\xa0>, and does not understand the C<\\x{3000}> form. In that case, use the L<ansiecho> command, which interprets them as Perl does.\n",
+      "파일에 C<nbsp> 또는 C<fwsp>가 포함되어 있는 경우 이 기능은 작동하지 않습니다. C<echo>는 C<\\xa0>에 대해 UTF-8 문자가 아닌 원시 바이트를 생성하며, C<\\x{3000}> 형식을 인식하지 못하기 때문입니다. 이 경우, L<ansiecho> 명령을 사용하면 됩니다. 이 명령은 Perl과 동일한 방식으로 이스케이프 시퀀스를 해석합니다.\n"
+   ],
+   [
       "From CPAN archive:\n",
       "CPAN 아카이브에서:\n"
    ],
@@ -186,6 +194,10 @@
    [
       "The predecessor of the C<cat-v> command was originally created as the filter module of the L<App::optex> command.\n",
       "C<cat-v> 명령의 이전 버전은 원래 L<App::optex> 명령의 필터 모듈로 만들어졌습니다.\n"
+   ],
+   [
+      "Echo command which interprets escape sequences in the same way as Perl's string literal.\n",
+      "Perl의 문자열 리터럴과 동일한 방식으로 이스케이프 시퀀스를 해석하는 echo 명령입니다.\n"
    ],
    [
       "UNIX Style, or cat -v Considered Harmful\n",

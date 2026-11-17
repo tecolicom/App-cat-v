@@ -36,6 +36,10 @@
       "第二个字段是默认操作。C<s> 表示符号，C<m> 表示 Unicode 标识，C<0> 表示不转换。\n"
    ],
    [
+      "The C<fwsp> is the full-width IDEOGRAPHIC SPACE (U+3000), which occupies two columns on the display. The default symbol is also two columns wide, so the layout is preserved. If you replace it by other character, choose one with the same width.\n",
+      "C<fwsp> 表示全宽表意符空格（U+3000），在屏幕上占用两列空间。默认符号的宽度也是两列，因此布局得以保留。若要用其他字符替换它，请选择宽度相同的字符。\n"
+   ],
+   [
       "At this time, Unicode markings are available for the following characters\n",
       "目前，Unicode 标识可用于以下字符\n"
    ],
@@ -64,8 +68,8 @@
       "可以同时指定多个项目。下面的示例将 C<tab> 和 C<bel> 设置为 0，将 C<esc> 设置为 C<s>。\n"
    ],
    [
-      "If C<all> is specified for the name, the value applies to all character types. The following command sets all characters to C<s>, then sets C<nl>, C<nl>, C<np>, and C<sp> to C<m> and disables C<esc>. This is the default state.\n",
-      "如果为名称指定了 C<all>，则该值适用于所有字符类型。下面的命令将所有字符设置为 C<s>，然后将 C<nl>、C<nl>、C<np> 和 C<sp> 设置为 C<m>，并禁用 C<esc>。这是默认状态。\n"
+      "If C<all> is specified for the name, the value applies to all character types. The following command sets all characters to C<s>, then sets C<nul>, C<nl>, C<np>, C<sp>, and C<del> to C<m> and disables C<esc>. This is the default state.\n",
+      "如果名称指定为 C<all>，则该值适用于所有字符类型。以下命令将所有字符设置为 C<s>，然后将 C<nul>、C<nl>、C<np>、C<sp> 和 C<del> 设置为 C<m>，并禁用 C<esc>。这是默认状态。\n"
    ],
    [
       "If none of the name labels are specified, it is assumed that C<all> is given. The following command prints all control characters except newlines in escaped form, which is compatible with the Perl's string literal.\n",
@@ -172,6 +176,10 @@
       "下面的命令可以重现原始文件的全部内容。\n"
    ],
    [
+      "This does not work if the file contains C<nbsp> or C<fwsp>, because C<echo> produces a raw byte rather than UTF-8 character for C<\\xa0>, and does not understand the C<\\x{3000}> form. In that case, use the L<ansiecho> command, which interprets them as Perl does.\n",
+      "如果文件中包含 C<nbsp> 或 C<fwsp>，则此操作无效，因为 C<echo> 对于 C<\\xa0> 会生成原始字节而非 UTF-8 字符，并且不支持 C<\\x{3000}> 这种形式。 在这种情况下，请使用 L<ansiecho> 命令，该命令会像 Perl 一样解释这些转义序列。\n"
+   ],
+   [
       "From CPAN archive:\n",
       "来自 CPAN 档案：\n"
    ],
@@ -186,6 +194,10 @@
    [
       "The predecessor of the C<cat-v> command was originally created as the filter module of the L<App::optex> command.\n",
       "C<cat-v> 命令的前身最初是作为 L<App::optex> 命令的过滤器模块创建的。\n"
+   ],
+   [
+      "Echo command which interprets escape sequences in the same way as Perl's string literal.\n",
+      "该 echo 命令会像 Perl 的字符串字面量一样解释转义序列。\n"
    ],
    [
       "UNIX Style, or cat -v Considered Harmful\n",

@@ -36,6 +36,10 @@
       "2番目のフィールドはデフォルトの動作です。C<s>は記号、C<m>はUnicodeマーク、C<0>は無変換を表します。\n"
    ],
    [
+      "The C<fwsp> is the full-width IDEOGRAPHIC SPACE (U+3000), which occupies two columns on the display. The default symbol is also two columns wide, so the layout is preserved. If you replace it by other character, choose one with the same width.\n",
+      "C<fwsp>は、表示上で2列分の幅を占める全角の「IDEOGRAPHIC SPACE」（U+3000）です。デフォルトの記号も幅が2列分であるため、レイアウトが維持されます。これを他の文字に置き換える場合は、同じ幅の文字を選択してください。\n"
+   ],
+   [
       "At this time, Unicode markings are available for the following characters\n",
       "現時点では、Unicodeマークは以下の文字で利用可能です。\n"
    ],
@@ -64,8 +68,8 @@
       "複数の項目を同時に指定することができます。以下の例では、C<tab>とC<bel>を0に、C<esc>をC<s>に設定しています。\n"
    ],
    [
-      "If C<all> is specified for the name, the value applies to all character types. The following command sets all characters to C<s>, then sets C<nl>, C<nl>, C<np>, and C<sp> to C<m> and disables C<esc>. This is the default state.\n",
-      "名前に C<all> を指定すると、その値はすべての文字タイプに適用されます。次のコマンドは、すべての文字をC<s>に設定し、C<nl>、C<nl>、C<np>、C<sp>をC<m>に設定し、C<esc>を無効にします。これがデフォルトの状態である。\n"
+      "If C<all> is specified for the name, the value applies to all character types. The following command sets all characters to C<s>, then sets C<nul>, C<nl>, C<np>, C<sp>, and C<del> to C<m> and disables C<esc>. This is the default state.\n",
+      "名前として C<all> が指定された場合、その値はすべての文字タイプに適用されます。次のコマンドは、すべての文字を C<s> に設定し、その後 C<nul>、C<nl>、C<np>、C<sp>、および C<del> を C<m> に設定し、C<esc> を無効にします。これがデフォルトの状態です。\n"
    ],
    [
       "If none of the name labels are specified, it is assumed that C<all> is given. The following command prints all control characters except newlines in escaped form, which is compatible with the Perl's string literal.\n",
@@ -172,6 +176,10 @@
       "次のコマンドは、元のファイルの内容を完全に再現する。\n"
    ],
    [
+      "This does not work if the file contains C<nbsp> or C<fwsp>, because C<echo> produces a raw byte rather than UTF-8 character for C<\\xa0>, and does not understand the C<\\x{3000}> form. In that case, use the L<ansiecho> command, which interprets them as Perl does.\n",
+      "ファイルに C<nbsp> または C<fwsp> が含まれている場合、これは機能しません。なぜなら、C<echo> は C<\\xa0> に対して UTF-8 文字ではなく生のバイトを出力し、C<\\x{3000}> の形式を認識しないからです。 その場合は、L<ansiecho> コマンドを使用してください。このコマンドは、Perl と同様にエスケープシーケンスを解釈します。\n"
+   ],
+   [
       "From CPAN archive:\n",
       "CPANアーカイブから：\n"
    ],
@@ -186,6 +194,10 @@
    [
       "The predecessor of the C<cat-v> command was originally created as the filter module of the L<App::optex> command.\n",
       "C<cat-v>コマンドの前身は、もともとL<App::optex>コマンドのフィルタモジュールとして作られたものです。\n"
+   ],
+   [
+      "Echo command which interprets escape sequences in the same way as Perl's string literal.\n",
+      "Perl の文字列リテラルと同じ方法でエスケープシーケンスを解釈する echo コマンド。\n"
    ],
    [
       "UNIX Style, or cat -v Considered Harmful\n",
