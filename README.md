@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/tecolicom/App-cat-v/workflows/test/badge.svg)](https://github.com/tecolicom/App-cat-v/actions) [![MetaCPAN Release](https://badge.fury.io/pl/App-cat-v.svg)](https://metacpan.org/release/App-cat-v)
+[![Actions Status](https://github.com/tecolicom/App-cat-v/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/tecolicom/App-cat-v/actions?workflow=test) [![MetaCPAN Release](https://badge.fury.io/pl/App-cat-v.svg)](https://metacpan.org/release/App-cat-v)
 # NAME
 
 cat-v - visualize non-printing characters
@@ -34,7 +34,7 @@ cat-v \[ options \] args ...
 
 # VERSION
 
-Version 1.05
+Version 1.06
 
 # DESCRIPTION
 
@@ -358,7 +358,7 @@ Kazumasa Utashiro
 
 # LICENSE
 
-Copyright © 2024-2025 Kazumasa Utashiro.
+Copyright © 2024-2026 Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

@@ -33,7 +33,7 @@ cat-v \[ オプション \] 引数 ...
 
 # VERSION
 
-Version 1.05
+Version 1.06
 
 # DESCRIPTION
 
@@ -292,7 +292,7 @@ Kazumasa Utashiro
 
 # LICENSE
 
-Copyright © 2024-2025 Kazumasa Utashiro.
+Copyright © 2024-2026 Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
