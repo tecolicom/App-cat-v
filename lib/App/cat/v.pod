@@ -172,12 +172,12 @@ conversion, the original character is output at the same time.
 Use the names in the list above to specify by character type.  If you
 want to convert escapes without converting tabs, use the following
 
-    cat-v -c tab=0 -c esc=s
+    cat-v -c ht=0 -c esc=s
 
 Multiple items can be specified at the same time.  The following
-example sets C<tab> and C<bel> to 0 and C<esc> to C<s>.
+example sets C<ht> and C<bel> to 0 and C<esc> to C<s>.
 
-    cat-v -c tab=bel=0,esc=s
+    cat-v -c ht=bel=0,esc=s
 
 If C<all> is specified for the name, the value applies to all
 character types.  The following command sets all characters to C<s>,
